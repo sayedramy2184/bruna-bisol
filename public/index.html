@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bruna Bisol — UGC Beauty &amp; Travel · SKYRESET Method™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f7f0e4;
+    --cream-deep: #f0e6d4;
+    --sand: #e8d9bf;
+    --terracotta: #c87856;
+    --terracotta-soft: #d99577;
+    --clay: #a8593c;
+    --champagne: #d4a574;
+    --champagne-light: #e8c89a;
+    --cocoa: #3d2a1f;
+    --cocoa-soft: #5a4032;
+    --warm-grey: #8a7563;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--cocoa);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Sun-warm grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 100;
+    mix-blend-mode: multiply;
+  }
+
+  /* Sun glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(216, 149, 119, 0.18), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .display { font-family: 'Fraunces', serif; font-weight: 300; letter-spacing: -0.01em; }
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* ============ NAVIGATION ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 1.6rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(247, 240, 228, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(61, 42, 31, 0.06);
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; }
+  .nav-logo svg { width: 36px; height: 36px; }
+  .nav-logo-text {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.18em;
+    color: var(--cocoa);
+    font-weight: 400;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--cocoa);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.4s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0; height: 1px;
+    background: var(--terracotta);
+    transition: width 0.5s ease;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+    background: var(--terracotta);
+    border: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--clay); transform: translateY(-1px); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-text { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+  }
+  .hero-eyebrow .line { width: 40px; height: 1px; background: var(--terracotta); }
+  .hero-eyebrow span {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  h1.hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3.5rem, 7.2vw, 6.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: var(--cocoa);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1.2s 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+    letter-spacing: 0.005em;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--cocoa-soft);
+    max-width: 480px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s 0.8s forwards;
+  }
+
+  .btn-primary {
+    background: var(--cocoa);
+    color: var(--cream);
+    padding: 1.1rem 2.4rem;
+    border: none;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--terracotta);
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    border-radius: 100px;
+  }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-primary:hover::before { transform: translateY(0); }
+
+  .btn-ghost {
+    color: var(--cocoa);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--cocoa);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+  /* Hero Image */
+  .hero-image-wrap {
+    position: relative;
+    aspect-ratio: 4/5;
+    opacity: 0;
+    animation: fadeUp 1.4s 0.3s forwards;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(ellipse at 25% 20%, rgba(232, 200, 154, 0.7), transparent 60%),
+      linear-gradient(160deg, var(--sand) 0%, var(--terracotta-soft) 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 280px 280px 24px 24px;
+  }
+
+  .hero-image svg.figure {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 80%, rgba(168, 89, 60, 0.2), transparent 50%);
+  }
+
+  .hero-badge {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--cocoa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    animation: rotate 28s linear infinite;
+    box-shadow: 0 10px 40px rgba(168, 89, 60, 0.15);
+  }
+  .hero-badge svg { width: 100%; height: 100%; }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Decorative sun */
+  .hero-sun {
+    position: absolute;
+    bottom: -50px;
+    left: -40px;
+    width: 110px;
+    height: 110px;
+    z-index: 1;
+  }
+  .hero-sun svg { width: 100%; height: 100%; color: var(--champagne); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+  }
+  .scroll-hint .vline {
+    width: 1px;
+    height: 40px;
+    background: var(--warm-grey);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-hint .vline::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--terracotta);
+    animation: scrollDown 2.5s infinite;
+  }
+  @keyframes scrollDown {
+    0% { top: -100%; }
+    100% { top: 100%; }
+  }
+
+  /* ============ MARQUEE ============ */
+  .marquee {
+    background: var(--terracotta);
+    color: var(--cream);
+    padding: 1.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex;
+    animation: scroll-left 38s linear infinite;
+    gap: 4rem;
+  }
+  .marquee-track span {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .marquee-track .star { color: var(--champagne-light); font-size: 1rem; }
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ============ ABOUT ============ */
+  .about {
+    padding: 8rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .about-image {
+    aspect-ratio: 3/4;
+    background: linear-gradient(155deg, var(--sand), var(--champagne));
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .about-image::before {
+    content: '';
+    position: absolute;
+    inset: 1.5rem;
+    border: 1px solid rgba(247, 240, 228, 0.4);
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 6px;
+  }
+
+  .about-tag { margin-bottom: 1.5rem; color: var(--terracotta); }
+
+  .about h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.015em;
+  }
+  .about h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .about-body p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--cocoa-soft);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(61, 42, 31, 0.15);
+  }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 3rem;
+    color: var(--cocoa);
+    display: block;
+    margin-bottom: 0.4rem;
+    line-height: 1;
+  }
+  .stat-num em { color: var(--terracotta); font-style: normal; font-size: 0.7em; }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+  }
+
+  /* ============ METHOD ============ */
+  .method {
+    background: linear-gradient(180deg, var(--cocoa) 0%, var(--cocoa-soft) 100%);
+    color: var(--cream);
+    padding: 8rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .method::before {
+    content: 'SKYRESET';
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 19vw;
+    color: rgba(216, 149, 119, 0.06);
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .method::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(216, 149, 119, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+
+  .method-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .method-header .label { color: var(--champagne); margin-bottom: 1.5rem; display: block; }
+
+  .method-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 5.5vw, 4.7rem);
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -0.015em;
+  }
+  .method-header h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--champagne-light);
+  }
+
+  .method-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--cream-deep);
+    line-height: 1.7;
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(216, 149, 119, 0.25);
+  }
+
+  .method-step {
+    padding: 3.5rem 2.5rem;
+    border-right: 1px solid rgba(216, 149, 119, 0.25);
+    transition: background 0.5s ease;
+    cursor: default;
+  }
+  .method-step:last-child { border-right: none; }
+  .method-step:hover { background: rgba(216, 149, 119, 0.06); }
+
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--champagne);
+    letter-spacing: 0.3em;
+    margin-bottom: 1.5rem;
+  }
+
+  .method-step h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .method-step p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream-deep);
+    line-height: 1.7;
+  }
+
+  /* ============ SKIN READING ============ */
+  .skin-reading {
+    padding: 8rem 3rem;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skin-reading::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(216, 149, 119, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+
+  .skin-reading::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(232, 200, 154, 0.2), transparent 60%);
+    pointer-events: none;
+  }
+
+  .skin-reading-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .skin-reading-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 4rem;
+  }
+
+  .skin-reading-header .label {
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .skin-reading-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.015em;
+  }
+
+  .skin-reading-header h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .skin-reading-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--cocoa-soft);
+    line-height: 1.7;
+  }
+
+  .skin-reading-disclaimer {
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(247, 240, 228, 0.6);
+    display: inline-block;
+    border-radius: 100px;
+    border: 1px solid rgba(168, 89, 60, 0.15);
+  }
+
+  .reader-container {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 4rem;
+    box-shadow: 0 20px 60px rgba(168, 89, 60, 0.1);
+    border: 1px solid rgba(168, 89, 60, 0.08);
+  }
+
+  .reader-steps {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .reader-step-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    padding: 0.5rem 1rem;
+    transition: color 0.4s ease;
+  }
+
+  .reader-step-pill.active { color: var(--terracotta); }
+  .reader-step-pill.done { color: var(--cocoa); }
+
+  .reader-step-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .reader-step-pill .arrow {
+    color: rgba(138, 117, 99, 0.4);
+    margin-left: 0.5rem;
+  }
+
+  .reader-step {
+    display: none;
+    animation: fadeIn 0.6s ease;
+  }
+
+  .reader-step.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .upload-zone {
+    border: 2px dashed rgba(168, 89, 60, 0.3);
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background: rgba(247, 240, 228, 0.5);
+  }
+
+  .upload-zone:hover, .upload-zone.dragover {
+    border-color: var(--terracotta);
+    background: rgba(216, 149, 119, 0.05);
+  }
+
+  .upload-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.5rem;
+    color: var(--terracotta);
+  }
+
+  .upload-zone h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  .upload-zone p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cocoa-soft);
+    margin-bottom: 2rem;
+  }
+
+  .upload-button {
+    background: var(--cocoa);
+    color: var(--cream);
+    padding: 1rem 2.2rem;
+    border: none;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.4s ease;
+    display: inline-block;
+  }
+
+  .upload-button:hover { background: var(--terracotta); }
+
+  .upload-tips {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .upload-tip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--cocoa-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+
+  .upload-tip svg { width: 16px; height: 16px; color: var(--terracotta); }
+
+  .email-step {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .email-step .preview {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--cream);
+    box-shadow: 0 10px 30px rgba(168, 89, 60, 0.2);
+    background: var(--sand);
+  }
+
+  .email-step .preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .email-step h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .email-step p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--cocoa-soft);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .email-step input[type="email"], .email-step input[type="text"] {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(61, 42, 31, 0.2);
+    border-radius: 100px;
+    padding: 1rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--cocoa);
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .email-step input:focus {
+    outline: none;
+    border-color: var(--terracotta);
+  }
+
+  .email-step input::placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--warm-grey);
+  }
+
+  .email-step .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    margin: 1rem 0 2rem;
+    font-size: 0.8rem;
+    color: var(--warm-grey);
+    line-height: 1.5;
+  }
+
+  .email-step .consent input { margin-top: 3px; accent-color: var(--terracotta); }
+
+  .email-step .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-back {
+    background: transparent;
+    color: var(--cocoa);
+    border: 1px solid var(--cocoa);
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  .btn-back:hover { background: var(--cocoa); color: var(--cream); }
+
+  .btn-analyze {
+    background: var(--terracotta);
+    color: var(--cream);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  .btn-analyze:hover { background: var(--clay); }
+  .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .loading-step {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .loading-orb {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2.5rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%,
+      var(--champagne-light),
+      var(--terracotta) 60%,
+      var(--clay));
+    animation: pulse 2.5s ease-in-out infinite;
+    box-shadow: 0 0 60px rgba(216, 149, 119, 0.4);
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.08); opacity: 1; }
+  }
+
+  .loading-step h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .loading-step .status {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cocoa-soft);
+    min-height: 1.6em;
+    transition: opacity 0.4s ease;
+  }
+
+  .results-step .results-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .results-step .results-header .small-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .results-step .results-header h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 1rem;
+  }
+
+  .results-step .results-header h3 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .results-step .intro-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--cocoa-soft);
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .result-card {
+    background: var(--cream-deep);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 3px solid var(--terracotta);
+  }
+
+  .result-card .card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .result-card .card-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--terracotta);
+    flex-shrink: 0;
+  }
+
+  .result-card h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: -0.005em;
+  }
+
+  .result-card .level {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+  }
+
+  .result-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--cocoa-soft);
+  }
+
+  .recos-section {
+    background: var(--cocoa);
+    color: var(--cream);
+    padding: 3rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .recos-section .label {
+    color: var(--champagne);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .recos-section h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+  }
+
+  .recos-section h4 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--champagne-light);
+  }
+
+  .reco-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .reco-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(216, 149, 119, 0.2);
+  }
+
+  .reco-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .reco-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--champagne);
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .reco-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--cream-deep);
+  }
+
+  .results-cta {
+    background: linear-gradient(135deg, var(--terracotta), var(--clay));
+    color: var(--cream);
+    padding: 3rem;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .results-cta::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(247, 240, 228, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+
+  .results-cta .label {
+    color: var(--champagne-light);
+    margin-bottom: 1rem;
+    display: block;
+    position: relative;
+  }
+
+  .results-cta h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+
+  .results-cta h4 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--champagne-light);
+  }
+
+  .results-cta p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .results-cta a {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--cocoa);
+    padding: 1.1rem 2.4rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .results-cta a:hover { background: var(--cocoa); color: var(--cream); }
+
+  .results-restart {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .results-restart button {
+    background: transparent;
+    border: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--warm-grey);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .results-restart button:hover { color: var(--terracotta); }
+
+  .error-message {
+    background: rgba(168, 89, 60, 0.1);
+    border-left: 3px solid var(--clay);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: var(--clay);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: none;
+  }
+  .error-message.visible { display: block; }
+
+  /* ============ SERVICES ============ */
+  .services { padding: 8rem 3rem; }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .services-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .services-header h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .services-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--cocoa-soft);
+    line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: var(--cream-deep);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    cursor: default;
+    border-radius: 12px;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--terracotta);
+    transition: width 0.7s ease;
+  }
+  .service-card:hover::before { width: 100%; }
+  .service-card:hover {
+    transform: translateY(-4px);
+    background: var(--sand);
+  }
+
+  .service-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 2rem;
+    color: var(--terracotta);
+  }
+
+  .service-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.85rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--cocoa-soft);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(61, 42, 31, 0.15);
+  }
+  .service-meta .price {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--terracotta);
+  }
+  .service-meta .more {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cocoa);
+    cursor: pointer;
+  }
+
+  /* ============ BRANDS ============ */
+  .brands {
+    padding: 6rem 3rem;
+    background: var(--sand);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brands .label { color: var(--terracotta); margin-bottom: 3rem; display: block; position: relative; z-index: 2; }
+
+  .brands-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--cocoa);
+    opacity: 0.55;
+    transition: opacity 0.4s ease;
+    text-transform: uppercase;
+  }
+  .brand:hover { opacity: 1; }
+
+  /* ============ TESTIMONIAL ============ */
+  .testimonial {
+    padding: 10rem 3rem;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 9rem;
+    color: var(--terracotta);
+    line-height: 0.5;
+    margin-bottom: 1rem;
+    opacity: 0.45;
+  }
+
+  .testimonial blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    line-height: 1.4;
+    color: var(--cocoa);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .testimonial cite {
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+  }
+
+  /* ============ CONTACT ============ */
+  .contact {
+    background: linear-gradient(160deg, var(--terracotta) 0%, var(--clay) 100%);
+    color: var(--cream);
+    padding: 8rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(247, 240, 228, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+
+  .contact-text { position: relative; z-index: 2; }
+  .contact-text .label { color: var(--champagne-light); margin-bottom: 1.5rem; display: block; }
+
+  .contact-text h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -0.015em;
+  }
+  .contact-text h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--champagne-light);
+  }
+  .contact-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--cream-deep);
+    max-width: 460px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(247, 240, 228, 0.35);
+    padding: 1rem 0;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.4s ease;
+    font-weight: 300;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus {
+    outline: none;
+    border-bottom-color: var(--cream);
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(247, 240, 228, 0.55);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+  }
+  .contact-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23f7f0e4' stroke-width='1' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right center;
+    color: rgba(247, 240, 228, 0.55);
+  }
+  .contact-form select option { background: var(--clay); color: var(--cream); }
+  .contact-form textarea { resize: vertical; min-height: 80px; }
+
+  .contact-form button {
+    margin-top: 1rem;
+    background: var(--cream);
+    color: var(--cocoa);
+    border: none;
+    padding: 1.2rem 2.4rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    align-self: flex-start;
+  }
+  .contact-form button:hover { background: var(--cocoa); color: var(--cream); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--cocoa);
+    color: var(--cream);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 0.8rem; }
+  .footer-brand svg { width: 32px; height: 32px; color: var(--champagne); }
+  .footer-brand-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
+  }
+  .footer-meta {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+  }
+  .footer-social { display: flex; gap: 1.5rem; }
+  .footer-social a {
+    color: var(--cream-deep);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  .footer-social a:hover { color: var(--champagne); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; gap: 3rem; padding: 7rem 1.5rem 4rem; }
+    .hero-image-wrap { order: -1; max-width: 400px; margin: 0 auto; }
+    .scroll-hint { display: none; }
+    .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+    .method { padding: 5rem 1.5rem; }
+    .method-grid { grid-template-columns: 1fr; }
+    .method-step { border-right: none; border-bottom: 1px solid rgba(216, 149, 119, 0.25); }
+    .method-step:last-child { border-bottom: none; }
+    .services { padding: 5rem 1.5rem; }
+    .skin-reading { padding: 5rem 1.5rem; }
+    .reader-container { padding: 2rem 1.5rem; }
+    .results-grid { grid-template-columns: 1fr; }
+    .recos-section, .results-cta { padding: 2rem 1.5rem; }
+    .upload-zone { padding: 2.5rem 1rem; }
+    .upload-tips { gap: 1.2rem; }
+    .services-header { grid-template-columns: 1fr; gap: 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 2rem; }
+    .brands { padding: 4rem 1.5rem; }
+    .brands-grid { gap: 2rem; }
+    .brand { font-size: 1.1rem; }
+    .testimonial { padding: 6rem 1.5rem; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGO SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bb-logo" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="50" cy="50" r="46" stroke-opacity="0.4"/>
+        <circle cx="50" cy="50" r="38"/>
+        <path d="M 30 32 L 30 68 M 30 32 Q 44 32 44 41 Q 44 50 30 50 Q 46 50 46 59 Q 46 68 30 68"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+        <path d="M 70 32 L 70 68 M 70 32 Q 56 32 56 41 Q 56 50 70 50 Q 54 50 54 59 Q 54 68 70 68"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+              transform="scale(-1,1) translate(-100,0)"/>
+        <path d="M 50 46 L 52 50 L 50 54 L 48 50 Z" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAVIGATION ============ -->
+<nav>
+  <div class="nav-logo">
+    <svg style="color: var(--cocoa);"><use href="#bb-logo"/></svg>
+    <span class="nav-logo-text">BRUNA BISOL</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Story</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#skin-reading">Skin Reading</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a session</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <span class="line"></span>
+      <span>UGC Creator · Skincare Expert</span>
+    </div>
+    <h1 class="hero-title">
+      Skin, gently<br>
+      <em>brought back to life.</em>
+    </h1>
+    <p class="hero-sub">
+      A warm, intentional approach to beauty — between Dubai and Toronto. Private skincare experiences, soulful brand storytelling, and the signature SKYRESET Method™. For skin that finally feels like home.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary"><span>Book an experience</span></a>
+      <a href="#method" class="btn-ghost">Discover the method</a>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap">
+    <div class="hero-image">
+      <svg class="figure" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="figGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a8593c" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#3d2a1f" stop-opacity="0.6"/>
+          </linearGradient>
+          <radialGradient id="lightSpot" cx="30%" cy="25%">
+            <stop offset="0%" stop-color="#f7f0e4" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#f7f0e4" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="400" height="500" fill="url(#lightSpot)"/>
+        <!-- Silhouette portrait -->
+        <path d="M 100 500 Q 100 380 140 340 Q 170 310 200 305 Q 230 310 260 340 Q 300 380 300 500 Z"
+              fill="url(#figGrad)"/>
+        <path d="M 175 340 Q 175 300 200 295 Q 225 300 225 340"
+              fill="#3d2a1f" opacity="0.35"/>
+        <ellipse cx="200" cy="240" rx="55" ry="70" fill="#3d2a1f" opacity="0.22"/>
+        <path d="M 145 220 Q 130 280 135 360 Q 145 380 155 360 Q 160 300 165 250"
+              fill="#3d2a1f" opacity="0.45"/>
+        <path d="M 255 220 Q 270 280 265 360 Q 255 380 245 360 Q 240 300 235 250"
+              fill="#3d2a1f" opacity="0.45"/>
+        <!-- Sun behind shoulder -->
+        <circle cx="320" cy="160" r="40" fill="#e8c89a" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Decorative sun bottom-left -->
+    <div class="hero-sun">
+      <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="55" cy="55" r="22" fill="currentColor" opacity="0.85"/>
+        <g stroke="currentColor" stroke-width="1.5" opacity="0.7">
+          <line x1="55" y1="10" x2="55" y2="22"/>
+          <line x1="55" y1="88" x2="55" y2="100"/>
+          <line x1="10" y1="55" x2="22" y2="55"/>
+          <line x1="88" y1="55" x2="100" y2="55"/>
+          <line x1="22" y1="22" x2="30" y2="30"/>
+          <line x1="80" y1="80" x2="88" y2="88"/>
+          <line x1="22" y1="88" x2="30" y2="80"/>
+          <line x1="80" y1="30" x2="88" y2="22"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Rotating badge -->
+    <div class="hero-badge">
+      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="circlePath" d="M 70, 70 m -52, 0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0"/>
+        </defs>
+        <text font-family="Fraunces, serif" font-size="9" letter-spacing="3" fill="#3d2a1f" font-weight="400">
+          <textPath href="#circlePath" startOffset="0">
+            ✦ SKYRESET METHOD ✦ BY INVITATION ✦
+          </textPath>
+        </text>
+        <g transform="translate(70,70)">
+          <path d="M 0 -8 L 2 0 L 0 8 L -2 0 Z" fill="#c87856"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="vline"></div>
+  </div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Beauty</span><span class="star">✦</span>
+    <span>Travel</span><span class="star">✦</span>
+    <span>SKYRESET Method™</span><span class="star">✦</span>
+    <span>UGC Creator</span><span class="star">✦</span>
+    <span>Dubai · Toronto</span><span class="star">✦</span>
+    <span>Beauty</span><span class="star">✦</span>
+    <span>Travel</span><span class="star">✦</span>
+    <span>SKYRESET Method™</span><span class="star">✦</span>
+    <span>UGC Creator</span><span class="star">✦</span>
+    <span>Dubai · Toronto</span><span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="about-image">
+    <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+      <defs>
+        <linearGradient id="portraitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#e8c89a"/>
+          <stop offset="100%" stop-color="#c87856"/>
+        </linearGradient>
+        <radialGradient id="warmGlow" cx="70%" cy="20%">
+          <stop offset="0%" stop-color="#f7f0e4" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#f7f0e4" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="300" height="400" fill="url(#portraitGrad)"/>
+      <rect width="300" height="400" fill="url(#warmGlow)"/>
+
+      <!-- Skincare objects, warm glow -->
+      <g opacity="0.4">
+        <rect x="80" y="120" width="40" height="120" rx="3" fill="#3d2a1f" opacity="0.55"/>
+        <rect x="88" y="100" width="24" height="25" fill="#3d2a1f" opacity="0.7"/>
+        <rect x="140" y="200" width="55" height="55" rx="4" fill="#3d2a1f" opacity="0.45"/>
+        <rect x="145" y="190" width="45" height="12" fill="#a8593c" opacity="0.7"/>
+        <rect x="210" y="150" width="28" height="90" rx="3" fill="#3d2a1f" opacity="0.6"/>
+        <circle cx="224" cy="142" r="6" fill="#c87856" opacity="0.85"/>
+        <!-- Olive branch -->
+        <path d="M 50 320 Q 70 280 100 290 Q 90 320 60 340 Z" fill="#3d2a1f" opacity="0.35"/>
+        <ellipse cx="55" cy="305" rx="3" ry="6" fill="#3d2a1f" opacity="0.5" transform="rotate(-30 55 305)"/>
+        <ellipse cx="75" cy="295" rx="3" ry="6" fill="#3d2a1f" opacity="0.5" transform="rotate(-20 75 295)"/>
+      </g>
+
+      <!-- Decorative dots -->
+      <g fill="#3d2a1f" opacity="0.08">
+        <circle cx="30" cy="50" r="1.2"/><circle cx="270" cy="80" r="1.2"/>
+        <circle cx="50" cy="250" r="1.2"/><circle cx="240" cy="350" r="1.2"/>
+        <circle cx="180" cy="60" r="1.2"/><circle cx="120" cy="380" r="1.2"/>
+      </g>
+    </svg>
+  </div>
+
+  <div>
+    <span class="label about-tag">— The story</span>
+    <h2>Between two cities,<br><em>one philosophy.</em></h2>
+    <div class="about-body">
+      <p>
+        Bruna's work began with a simple belief: skin doesn't need to be fixed — it needs to be heard. After years moving between the world's beauty capitals, she shaped an approach that pairs real science with sensory ritual.
+      </p>
+      <p>
+        Today, that work lives on in private treatments offered by invitation, in editorial content for the brands she truly loves, and in a proprietary method that resets your relationship with your skin — the SKYRESET Method™.
+      </p>
+    </div>
+
+    <div class="about-stats">
+      <div>
+        <span class="stat-num">8.5<em>K</em></span>
+        <span class="stat-label">Community</span>
+      </div>
+      <div>
+        <span class="stat-num">2</span>
+        <span class="stat-label">Cities</span>
+      </div>
+      <div>
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Signature rituals</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="method" id="method">
+  <div class="method-header">
+    <span class="label">— SKYRESET Method™</span>
+    <h2>Three movements<br>to <em>reset</em> the skin.</h2>
+    <p>A proprietary method that doesn't chase symptoms — it tends to the whole landscape of your skin. Crafted for those who have tried everything.</p>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-step">
+      <div class="step-num">— I.</div>
+      <h3>Unlayer</h3>
+      <p>A deep reading of your skin and its terrain. We strip away the noise of overworked routines and return to what truly matters.</p>
+    </div>
+    <div class="method-step">
+      <div class="step-num">— II.</div>
+      <h3>Awaken</h3>
+      <p>Signature massage and targeted actives. Skin starts to move again, texture softens, and a quiet glow rises naturally to the surface.</p>
+    </div>
+    <div class="method-step">
+      <div class="step-num">— III.</div>
+      <h3>Seal</h3>
+      <p>A closing ritual that anchors everything we've revealed. What's been awakened becomes lasting — a new memory, beautifully held.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKIN READING (AI Tool) ============ -->
+<section class="skin-reading" id="skin-reading">
+  <div class="skin-reading-inner">
+    <div class="skin-reading-header">
+      <span class="label">— Skin Reading by Bruna</span>
+      <h2>Your skin,<br><em>read with care.</em></h2>
+      <p>Upload a recent selfie and receive a complimentary skin reading, crafted in Bruna's voice. A gentle first conversation — before we ever meet.</p>
+      <div class="skin-reading-disclaimer">
+        Cosmetic guidance only · Not a medical diagnosis
+      </div>
+    </div>
+
+    <div class="reader-container">
+
+      <!-- Step indicator -->
+      <div class="reader-steps">
+        <div class="reader-step-pill active" data-pill="upload">
+          <span class="dot"></span>
+          <span>01 · Upload</span>
+        </div>
+        <span class="arrow">—</span>
+        <div class="reader-step-pill" data-pill="email">
+          <span class="dot"></span>
+          <span>02 · Connect</span>
+        </div>
+        <span class="arrow">—</span>
+        <div class="reader-step-pill" data-pill="results">
+          <span class="dot"></span>
+          <span>03 · Reading</span>
+        </div>
+      </div>
+
+      <!-- STEP 1: UPLOAD -->
+      <div class="reader-step active" id="step-upload">
+        <div class="upload-zone" id="uploadZone">
+          <svg class="upload-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="28" cy="28" r="25"/>
+            <path d="M 28 18 L 28 38 M 18 28 L 38 28" stroke-linecap="round"/>
+          </svg>
+          <h3>Share a recent selfie</h3>
+          <p>Natural light, no makeup if possible — just you, the way you wake up.</p>
+          <button class="upload-button" type="button" id="uploadBtn">Choose a photo</button>
+          <input type="file" id="fileInput" accept="image/*" style="display:none" />
+
+          <div class="upload-tips">
+            <div class="upload-tip">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M 5 8 L 7 10 L 11 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Soft daylight</span>
+            </div>
+            <div class="upload-tip">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M 5 8 L 7 10 L 11 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Face clearly visible</span>
+            </div>
+            <div class="upload-tip">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M 5 8 L 7 10 L 11 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Photo never stored</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: EMAIL -->
+      <div class="reader-step" id="step-email">
+        <div class="email-step">
+          <div class="preview"><img id="previewImg" src="" alt="Your photo" /></div>
+          <h3>One last detail.</h3>
+          <p>Your reading will be revealed below — and a copy sent to your inbox, so you can keep it close.</p>
+
+          <input type="text" id="firstName" placeholder="First name" />
+          <input type="email" id="emailInput" placeholder="Email address" />
+
+          <label class="consent">
+            <input type="checkbox" id="consentBox" checked />
+            <span>I agree to receive my skin reading and occasional notes from Bruna. No spam, ever — unsubscribe anytime.</span>
+          </label>
+
+          <div class="error-message" id="emailError"></div>
+
+          <div class="actions">
+            <button class="btn-back" type="button" id="backToUpload">← Back</button>
+            <button class="btn-analyze" type="button" id="analyzeBtn">Reveal my reading</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: LOADING -->
+      <div class="reader-step" id="step-loading">
+        <div class="loading-step">
+          <div class="loading-orb"></div>
+          <h3>Reading your skin...</h3>
+          <div class="status" id="loadingStatus">Listening to the light, the texture, the quiet signals.</div>
+        </div>
+      </div>
+
+      <!-- STEP 4: RESULTS -->
+      <div class="reader-step" id="step-results">
+        <div class="results-step">
+          <div class="results-header">
+            <span class="small-label">— Your Skin Reading</span>
+            <h3 id="resultsTitle">A first conversation,<br><em>just for you.</em></h3>
+            <p class="intro-quote" id="resultsIntro"></p>
+          </div>
+
+          <div class="results-grid" id="resultsGrid">
+            <!-- Cards injected via JS -->
+          </div>
+
+          <div class="recos-section">
+            <span class="label">— Bruna's recommendations</span>
+            <h4>Three gentle <em>movements</em> to begin.</h4>
+            <div class="reco-list" id="recoList">
+              <!-- Recos injected via JS -->
+            </div>
+          </div>
+
+          <div class="results-cta">
+            <span class="label">— Ready to go further?</span>
+            <h4>This is only <em>the beginning.</em></h4>
+            <p>A photo can only tell us so much. For a true reading — touch, texture, the way your skin responds — book a private session with Bruna in Dubai or Toronto.</p>
+            <a href="#contact">Book your SKYRESET session</a>
+          </div>
+
+          <div class="results-restart">
+            <button type="button" id="restartBtn">Read a different photo</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const fileInput = document.getElementById('fileInput');
+  const uploadBtn = document.getElementById('uploadBtn');
+  const uploadZone = document.getElementById('uploadZone');
+  const previewImg = document.getElementById('previewImg');
+  const firstNameInput = document.getElementById('firstName');
+  const emailInput = document.getElementById('emailInput');
+  const consentBox = document.getElementById('consentBox');
+  const emailError = document.getElementById('emailError');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const backToUpload = document.getElementById('backToUpload');
+  const restartBtn = document.getElementById('restartBtn');
+  const loadingStatus = document.getElementById('loadingStatus');
+  const resultsGrid = document.getElementById('resultsGrid');
+  const recoList = document.getElementById('recoList');
+  const resultsIntro = document.getElementById('resultsIntro');
+
+  let imageBase64 = null;
+  let imageMediaType = null;
+
+  function showStep(name) {
+    document.querySelectorAll('.reader-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-' + name).classList.add('active');
+    document.querySelectorAll('.reader-step-pill').forEach(p => p.classList.remove('active', 'done'));
+    const order = ['upload', 'email', 'loading', 'results'];
+    const currentIdx = order.indexOf(name);
+    const pillMap = { upload: 'upload', email: 'email', loading: 'email', results: 'results' };
+    document.querySelectorAll('.reader-step-pill').forEach(p => {
+      const pillName = p.dataset.pill;
+      const pillIdx = ['upload', 'email', 'results'].indexOf(pillName);
+      const currentPillIdx = ['upload', 'email', 'results'].indexOf(pillMap[name]);
+      if (pillIdx < currentPillIdx) p.classList.add('done');
+      else if (pillIdx === currentPillIdx) p.classList.add('active');
+    });
+  }
+
+  function showError(msg) {
+    emailError.textContent = msg;
+    emailError.classList.add('visible');
+  }
+  function clearError() {
+    emailError.classList.remove('visible');
+  }
+
+  // === Upload handling ===
+  uploadBtn.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('click', (e) => {
+    if (e.target === uploadBtn) return;
+    fileInput.click();
+  });
+
+  uploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadZone.classList.add('dragover');
+  });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+  uploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadZone.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+  });
+
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files[0]) handleFile(e.target.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file.');
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      alert('Image is too large. Please use a photo under 10MB.');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataUrl = e.target.result;
+      previewImg.src = dataUrl;
+      imageBase64 = dataUrl.split(',')[1];
+      imageMediaType = file.type;
+      showStep('email');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  backToUpload.addEventListener('click', () => showStep('upload'));
+
+  // === Loading messages rotation ===
+  const loadingMessages = [
+    "Listening to the light, the texture, the quiet signals.",
+    "Reading the way your skin holds the day.",
+    "Looking for what wants to be seen, gently.",
+    "Translating the image into a careful conversation.",
+    "Bruna's voice is composing your reading..."
+  ];
+
+  let loadingInterval = null;
+  function startLoadingRotation() {
+    let i = 0;
+    loadingInterval = setInterval(() => {
+      i = (i + 1) % loadingMessages.length;
+      loadingStatus.style.opacity = '0';
+      setTimeout(() => {
+        loadingStatus.textContent = loadingMessages[i];
+        loadingStatus.style.opacity = '1';
+      }, 400);
+    }, 3500);
+  }
+  function stopLoadingRotation() {
+    if (loadingInterval) clearInterval(loadingInterval);
+  }
+
+  // === Analyze ===
+  analyzeBtn.addEventListener('click', async () => {
+    clearError();
+    const firstName = firstNameInput.value.trim();
+    const email = emailInput.value.trim();
+
+    if (!firstName) { showError('Please share your first name.'); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please enter a valid email address.'); return;
+    }
+    if (!consentBox.checked) {
+      showError('Please agree to receive your reading.'); return;
+    }
+    if (!imageBase64) { showError('Photo is missing — please go back and upload one.'); return; }
+
+    showStep('loading');
+    startLoadingRotation();
+
+    try {
+      // 1. Analyse de la peau via /api/analyze (cle API securisee cote serveur)
+      const analyzeResponse = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          imageBase64,
+          imageMediaType
+        })
+      });
+
+      if (!analyzeResponse.ok) {
+        const errData = await analyzeResponse.json().catch(() => ({}));
+        throw new Error(errData.error || 'Analysis failed.');
+      }
+
+      const result = await analyzeResponse.json();
+
+      stopLoadingRotation();
+
+      if (result.error) {
+        showStep('email');
+        showError(result.error);
+        return;
+      }
+
+      // 2. Envoi du lead a Bruna + email au client (en arriere-plan)
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, email, result })
+      }).catch(err => console.error('Lead capture failed:', err));
+
+      renderResults(result, firstName);
+      showStep('results');
+
+    } catch (err) {
+      stopLoadingRotation();
+      console.error(err);
+      showStep('email');
+      showError('Something went wrong on our side. Please try again in a moment.');
+    }
+  });
+
+  // === Render results ===
+  function renderResults(result, firstName) {
+    resultsIntro.textContent = result.intro || '';
+
+    const icons = {
+      'Hydration': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M 16 4 Q 8 14 8 20 Q 8 27 16 27 Q 24 27 24 20 Q 24 14 16 4 Z" stroke-linejoin="round"/></svg>',
+      'Texture': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="12" r="2"/><circle cx="22" cy="12" r="2"/><circle cx="10" cy="22" r="2"/><circle cx="22" cy="22" r="2"/><circle cx="16" cy="17" r="2"/></svg>',
+      'Radiance': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="6"/><line x1="16" y1="3" x2="16" y2="7" stroke-linecap="round"/><line x1="16" y1="25" x2="16" y2="29" stroke-linecap="round"/><line x1="3" y1="16" x2="7" y2="16" stroke-linecap="round"/><line x1="25" y1="16" x2="29" y2="16" stroke-linecap="round"/><line x1="7" y1="7" x2="9.5" y2="9.5" stroke-linecap="round"/><line x1="22.5" y1="22.5" x2="25" y2="25" stroke-linecap="round"/><line x1="7" y1="25" x2="9.5" y2="22.5" stroke-linecap="round"/><line x1="22.5" y1="9.5" x2="25" y2="7" stroke-linecap="round"/></svg>',
+      'Tone': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="12"/><path d="M 16 4 Q 8 16 16 28" /></svg>'
+    };
+
+    resultsGrid.innerHTML = result.analysis.map(item => `
+      <div class="result-card">
+        <div class="card-head">
+          <div class="card-icon">${icons[item.category] || icons['Tone']}</div>
+          <h4>${item.category}</h4>
+        </div>
+        <div class="level">— ${item.level}</div>
+        <p>${item.observation}</p>
+      </div>
+    `).join('');
+
+    recoList.innerHTML = result.recommendations.map((reco, i) => `
+      <div class="reco-item">
+        <div class="reco-num">${String(i + 1).padStart(2, '0')}</div>
+        <div class="reco-text">${reco}</div>
+      </div>
+    `).join('');
+  }
+
+  restartBtn.addEventListener('click', () => {
+    fileInput.value = '';
+    imageBase64 = null;
+    imageMediaType = null;
+    previewImg.src = '';
+    showStep('upload');
+  });
+
+})();
+</script>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="services-header">
+    <h2>An <em>intimate</em> offering.</h2>
+    <p>Each experience is treated like something rare — selective, deeply personal, and always rooted in clear intention.</p>
+  </div>
+
+  <div class="services-grid">
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
+        <circle cx="25" cy="25" r="20"/>
+        <path d="M 18 20 Q 25 15 32 20 M 18 30 Q 25 35 32 30"/>
+        <circle cx="25" cy="25" r="3" fill="currentColor"/>
+      </svg>
+      <h3>Private Skincare Experience</h3>
+      <p>The signature SKYRESET Method™ treatment, two hours in a private suite in Dubai or Toronto. Skin reading, sculpting massage, and bespoke ritual.</p>
+      <div class="service-meta">
+        <span class="price">By request</span>
+        <span class="more">Inquire →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
+        <rect x="10" y="14" width="30" height="22" rx="2"/>
+        <circle cx="25" cy="25" r="6"/>
+        <circle cx="25" cy="25" r="2" fill="currentColor"/>
+        <rect x="20" y="10" width="10" height="4"/>
+      </svg>
+      <h3>UGC &amp; Brand Content</h3>
+      <p>Authentic, soulful content for beauty and lifestyle brands. Creative direction, capture, and ready-to-publish deliverables — crafted with care.</p>
+      <div class="service-meta">
+        <span class="price">On request</span>
+        <span class="more">Discuss →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M 10 25 L 25 10 L 40 25 L 25 40 Z"/>
+        <circle cx="25" cy="25" r="6"/>
+      </svg>
+      <h3>Travel Editorials</h3>
+      <p>Slow travel notebooks between the Middle East and North America. Quiet hotels, hidden addresses, and rituals that travel beautifully.</p>
+      <div class="service-meta">
+        <span class="price">Collaborations</span>
+        <span class="more">Explore →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M 25 8 L 25 42 M 8 25 L 42 25"/>
+        <circle cx="25" cy="25" r="14"/>
+        <circle cx="25" cy="25" r="3" fill="currentColor"/>
+      </svg>
+      <h3>1:1 Consultation</h3>
+      <p>A remote diagnosis, a stripped-back routine, and four weeks of close guidance. The right way to start over — calmly, and with intention.</p>
+      <div class="service-meta">
+        <span class="price">Dedicated program</span>
+        <span class="more">Apply →</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ BRANDS ============ -->
+<section class="brands">
+  <span class="label">— Universe &amp; collaborations</span>
+  <div class="brands-grid">
+    <span class="brand">Augustinus Bader</span>
+    <span class="brand">La Mer</span>
+    <span class="brand">Hourglass</span>
+    <span class="brand">Sisley</span>
+    <span class="brand">Tatcha</span>
+    <span class="brand">Westman Atelier</span>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section class="testimonial">
+  <div class="quote-mark">"</div>
+  <blockquote>
+    Bruna reads skin in a way I had never experienced before. In a single session, she undid years of bad habits — and put something quieter, truer, in their place.
+  </blockquote>
+  <cite>— C.M., Dubai client</cite>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-text">
+    <span class="label">— Get in touch</span>
+    <h2>A meeting,<br><em>tailored to you.</em></h2>
+    <p>Experiences are by invitation only. Share your intention, your city, your timing — Bruna replies personally within 48 hours.</p>
+  </div>
+
+  <div class="contact-form">
+    <input type="text" placeholder="Your name" name="name" />
+    <input type="email" placeholder="Email address" name="email" />
+    <select name="service">
+      <option value="">— Type of experience</option>
+      <option>Private Skincare Experience</option>
+      <option>UGC &amp; Brand Content</option>
+      <option>Travel Editorial</option>
+      <option>1:1 Consultation</option>
+      <option>Other</option>
+    </select>
+    <select name="city">
+      <option value="">— Preferred city</option>
+      <option>Dubai</option>
+      <option>Toronto</option>
+      <option>Other / remote</option>
+    </select>
+    <textarea placeholder="A few words about your intention..." name="message" rows="3"></textarea>
+    <button type="button">Send request</button>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand">
+    <svg><use href="#bb-logo"/></svg>
+    <span class="footer-brand-text">BRUNA BISOL</span>
+  </div>
+  <div class="footer-meta">
+    © 2026 — All rights reserved · SKYRESET Method™
+  </div>
+  <div class="footer-social">
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>
