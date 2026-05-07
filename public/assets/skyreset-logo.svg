@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" preserveAspectRatio="xMidYMid meet">
+  <!-- SKYRESET en grand, gris moyen, sans-serif fin et large -->
+  <text
+    x="200"
+    y="70"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="58"
+    font-weight="300"
+    letter-spacing="2"
+    fill="#8a8885"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >SKYRESET</text>
+
+  <!-- Trait horizontal noir fin -->
+  <line
+    x1="60"
+    y1="98"
+    x2="340"
+    y2="98"
+    stroke="#1a1816"
+    stroke-width="1"
+  />
+
+  <!-- "Method" en plus petit, gris -->
+  <text
+    x="200"
+    y="125"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="20"
+    font-weight="300"
+    letter-spacing="1"
+    fill="#8a8885"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >Method</text>
+
+  <!-- Le ™ -->
+  <text
+    x="282"
+    y="115"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="11"
+    font-weight="300"
+    fill="#8a8885"
+    text-anchor="start"
+  >™</text>
+</svg>
