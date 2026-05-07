@@ -1819,11 +1819,16 @@
       background: var(--white);
       padding: 1rem 1.5rem 2rem;
       border-bottom: 1px solid var(--line);
-      transform: translateY(-110%);
-      transition: transform 0.4s ease;
+      transform: translateY(-100vh);
+      visibility: hidden;
+      transition: transform 0.4s ease, visibility 0s linear 0.4s;
       z-index: 49;
     }
-    .nav-links.open { transform: translateY(0); }
+    .nav-links.open {
+      transform: translateY(0);
+      visibility: visible;
+      transition: transform 0.4s ease, visibility 0s linear 0s;
+    }
     .nav-links li {
       border-bottom: 1px solid var(--line);
       padding: 1rem 0;
