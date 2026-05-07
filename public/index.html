@@ -9,18 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --white: #ffffff;
-    --off-white: #f7f7f6;
-    --paper: #f1f0ee;
-    --cream: #ededeb;
-    --line: #e3e2df;
-    --grey-soft: #c0bfbc;
-    --grey: #8a8987;
-    --grey-deep: #5a5855;
-    --warm-accent: #5a5855;
-    --warm-light: #b8b6b3;
-    --ink: #25241f;
-    --ink-deep: #15140f;
+    --white: #fefdfb;
+    --off-white: #f9f6ef;
+    --paper: #f3eee3;
+    --whisper: #ebe5d6;
+    --line: #d4ccba;
+    --grey-light: #b0a896;
+    --grey: #8a8475;
+    --grey-deep: #5a5448;
+    --ink: #2a2620;
+    --black: #1a1612;
+    --champagne: #c9a97d;
+    --champagne-soft: #d9bd95;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,7 +62,7 @@
     z-index: -1;
   }
 
-  ::selection { background: var(--warm-accent); color: var(--white); }
+  ::selection { background: var(--grey-deep); color: var(--white); }
 
   .label {
     font-family: 'Inter', sans-serif;
@@ -70,7 +70,7 @@
     letter-spacing: 0.4em;
     text-transform: uppercase;
     font-weight: 400;
-    color: var(--grey);
+    color: var(--champagne);
   }
 
   /* ============ NAVIGATION ============ */
@@ -121,7 +121,7 @@
     background: var(--ink);
     transition: width 0.5s ease;
   }
-  .nav-links a:hover { color: var(--grey-deep); }
+  .nav-links a:hover { color: var(--champagne); }
   .nav-links a:hover::after { width: 100%; }
 
   .nav-cta {
@@ -137,8 +137,9 @@
     transition: all 0.4s ease;
     text-decoration: none;
     font-weight: 400;
+    border-radius: 10px;
   }
-  .nav-cta:hover { background: var(--ink-deep); }
+  .nav-cta:hover { background: var(--champagne); color: var(--black); }
 
   /* ============ HERO ============ */
   .hero {
@@ -162,12 +163,12 @@
     opacity: 0;
     animation: fadeUp 1s 0.2s forwards;
   }
-  .hero-eyebrow .line { width: 40px; height: 1px; background: var(--grey); }
+  .hero-eyebrow .line { width: 40px; height: 1px; background: var(--champagne); }
   .hero-eyebrow span {
     font-size: 0.68rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--grey);
+    color: var(--champagne);
     font-weight: 400;
   }
 
@@ -187,7 +188,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     letter-spacing: 0.005em;
     font-size: 1.05em;
   }
@@ -230,13 +231,14 @@
     font-weight: 400;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
   }
 
   .btn-primary::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--ink-deep);
+    background: var(--champagne);
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   }
@@ -257,7 +259,8 @@
 
   .hero-image-wrap {
     position: relative;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/5;
+    max-width: 100%;
     opacity: 0;
     animation: fadeUp 1.4s 0.3s forwards;
   }
@@ -267,6 +270,7 @@
     height: 100%;
     overflow: hidden;
     position: relative;
+    border-radius: 12px;
   }
   .hero-image img {
     width: 100%;
@@ -324,7 +328,7 @@
   .scroll-hint .vline {
     width: 1px;
     height: 40px;
-    background: var(--grey-soft);
+    background: var(--grey-light);
     position: relative;
     overflow: hidden;
   }
@@ -335,7 +339,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--warm-accent);
+    background: var(--grey-deep);
     animation: scrollDown 2.5s infinite;
   }
   @keyframes scrollDown {
@@ -364,7 +368,7 @@
     text-transform: uppercase;
     color: var(--white);
   }
-  .marquee-track .dot { color: var(--grey-soft); }
+  .marquee-track .dot { color: var(--grey-light); }
   @keyframes scroll-left {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -372,7 +376,7 @@
 
   /* ============ ABOUT ============ */
   .about {
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 6rem;
@@ -384,6 +388,7 @@
     aspect-ratio: 3/4;
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
   }
   .about-image img {
     width: 100%;
@@ -405,7 +410,7 @@
   .about h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     font-weight: 300;
   }
 
@@ -450,7 +455,7 @@
   .method {
     background: var(--white);
     color: var(--ink);
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     position: relative;
     overflow: hidden;
   }
@@ -490,7 +495,7 @@
   .method-header h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     font-weight: 300;
   }
 
@@ -549,12 +554,21 @@
     font-weight: 300;
   }
 
+  /* ============ DIVIDER ============ */
+  .divider {
+    max-width: 80px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto;
+  }
+
   /* ============ METHOD ATMOS IMAGE ============ */
   .method-atmos {
     margin: 6rem auto 0;
-    max-width: 1100px;
-    aspect-ratio: 16/9;
+    max-width: 1200px;
+    aspect-ratio: 21/9;
     overflow: hidden;
+    border-radius: 12px;
   }
   .method-atmos img {
     width: 100%;
@@ -566,7 +580,7 @@
   /* ============ RESULTS ============ */
   .results {
     background: var(--off-white);
-    padding: 8rem 3rem;
+    padding: 10rem 3rem;
   }
   .results-inner {
     max-width: 1200px;
@@ -582,6 +596,7 @@
     max-width: 480px;
     margin: 0 auto;
     width: 100%;
+    border-radius: 12px;
   }
   .results-image img {
     width: 100%;
@@ -650,7 +665,7 @@
 
   /* ============ SIGNATURE RITUALS ============ */
   .rituals {
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     background: var(--off-white);
   }
 
@@ -698,13 +713,14 @@
   }
 
   .ritual-card {
-    background: var(--cream);
+    background: var(--whisper);
     padding: 2.8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: background 0.5s ease, transform 0.4s ease;
     min-height: 340px;
+    border-radius: 10px;
   }
 
   .ritual-card:hover {
@@ -788,7 +804,7 @@
 
   /* ============ SKIN READING ============ */
   .skin-reading {
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     background: var(--white);
     position: relative;
   }
@@ -823,7 +839,7 @@
   .skin-reading-header h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     font-weight: 300;
   }
 
@@ -870,7 +886,7 @@
     font-size: 0.65rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--grey-soft);
+    color: var(--grey-light);
     padding: 0.5rem 1rem;
     transition: color 0.4s ease;
     font-weight: 400;
@@ -887,7 +903,7 @@
   }
 
   .reader-step-pill .arrow {
-    color: var(--grey-soft);
+    color: var(--grey-light);
     margin-left: 0.5rem;
   }
 
@@ -904,12 +920,13 @@
   }
 
   .upload-zone {
-    border: 1px dashed var(--grey-soft);
+    border: 1px dashed var(--grey-light);
     padding: 4rem 2rem;
     text-align: center;
     transition: all 0.4s ease;
     cursor: pointer;
     background: var(--white);
+    border-radius: 10px;
   }
 
   .upload-zone:hover, .upload-zone.dragover {
@@ -955,9 +972,10 @@
     transition: all 0.4s ease;
     display: inline-block;
     font-weight: 400;
+    border-radius: 10px;
   }
 
-  .upload-button:hover { background: var(--ink-deep); }
+  .upload-button:hover { background: var(--black); }
 
   .upload-tips {
     margin-top: 2rem;
@@ -1032,6 +1050,7 @@
     margin-bottom: 1rem;
     transition: border-color 0.3s ease;
     font-weight: 300;
+    border-radius: 10px;
   }
 
   .email-step input:focus {
@@ -1077,6 +1096,7 @@
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
     font-weight: 400;
+    border-radius: 10px;
   }
 
   .btn-back:hover { background: var(--ink); color: var(--white); }
@@ -1093,9 +1113,10 @@
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
     font-weight: 400;
+    border-radius: 10px;
   }
 
-  .btn-analyze:hover { background: var(--ink-deep); }
+  .btn-analyze:hover { background: var(--black); }
   .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .loading-step {
@@ -1109,7 +1130,7 @@
     margin: 0 auto 2.5rem;
     border-radius: 50%;
     border: 1px solid var(--line);
-    background: radial-gradient(circle at 30% 30%, var(--white), var(--paper) 70%, var(--grey-soft));
+    background: radial-gradient(circle at 30% 30%, var(--white), var(--paper) 70%, var(--grey-light));
     animation: pulse 2.5s ease-in-out infinite;
   }
 
@@ -1165,7 +1186,7 @@
   .results-step .results-header h3 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     font-weight: 300;
   }
 
@@ -1192,7 +1213,8 @@
     background: var(--white);
     padding: 2rem;
     border: 1px solid var(--line);
-    border-top: 2px solid var(--warm-accent);
+    border-top: 2px solid var(--champagne);
+    border-radius: 10px;
   }
 
   .result-card .card-head {
@@ -1221,7 +1243,7 @@
     font-size: 0.62rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     margin-bottom: 0.7rem;
     font-weight: 500;
   }
@@ -1242,7 +1264,7 @@
   }
 
   .recos-section .label {
-    color: var(--grey-soft);
+    color: var(--grey-light);
     margin-bottom: 1rem;
     display: block;
   }
@@ -1259,7 +1281,7 @@
   .recos-section h4 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-light);
+    color: var(--whisper);
     font-weight: 300;
   }
 
@@ -1283,7 +1305,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     font-size: 0.7rem;
-    color: var(--grey-soft);
+    color: var(--grey-light);
     flex-shrink: 0;
     line-height: 1;
     padding-top: 6px;
@@ -1323,7 +1345,7 @@
   .results-cta h4 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     font-weight: 300;
   }
 
@@ -1354,7 +1376,7 @@
     font-weight: 400;
   }
 
-  .results-cta a:hover { background: var(--ink-deep); }
+  .results-cta a:hover { background: var(--black); }
 
   .results-restart {
     text-align: center;
@@ -1391,7 +1413,7 @@
 
   /* ============ SERVICES ============ */
   .services {
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     background: var(--off-white);
   }
 
@@ -1418,7 +1440,7 @@
   .services-header h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-accent);
+    color: var(--grey-deep);
     font-weight: 300;
   }
   .services-header p {
@@ -1445,6 +1467,7 @@
     transition: all 0.6s ease;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
   }
 
   .service-card::before {
@@ -1452,11 +1475,11 @@
     position: absolute;
     top: 0; left: 0;
     width: 0; height: 1px;
-    background: var(--warm-accent);
+    background: var(--grey-deep);
     transition: width 0.7s ease;
   }
   .service-card:hover::before { width: 100%; }
-  .service-card:hover { border-color: var(--grey-soft); }
+  .service-card:hover { border-color: var(--grey-light); }
 
   .service-icon {
     width: 44px;
@@ -1537,11 +1560,11 @@
     text-transform: uppercase;
     color: var(--grey);
   }
-  .trusted-track .dot { color: var(--grey-soft); }
+  .trusted-track .dot { color: var(--grey-light); }
 
   /* ============ TESTIMONIALS ============ */
   .testimonials {
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     background: var(--off-white);
   }
 
@@ -1581,13 +1604,14 @@
     display: flex;
     flex-direction: column;
     border: 1px solid var(--line);
+    border-radius: 10px;
   }
 
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-size: 5rem;
-    color: var(--grey-soft);
+    color: var(--grey-light);
     line-height: 0.4;
     margin-bottom: 1.5rem;
   }
@@ -1616,7 +1640,7 @@
   /* ============ NEWSLETTER ============ */
   .newsletter {
     background: var(--paper);
-    padding: 8rem 3rem;
+    padding: 10rem 3rem;
   }
   .newsletter-inner {
     max-width: 620px;
@@ -1664,6 +1688,7 @@
     color: var(--ink);
     font-weight: 300;
     transition: border-color 0.3s ease;
+    border-radius: 10px;
   }
   .newsletter-form input[type="email"]::placeholder {
     font-family: 'Cormorant Garamond', serif;
@@ -1686,8 +1711,9 @@
     font-family: 'Inter', sans-serif;
     transition: background 0.3s ease;
     font-weight: 400;
+    border-radius: 10px;
   }
-  .newsletter-form button:hover { background: var(--ink-deep); }
+  .newsletter-form button:hover { background: var(--black); }
   .newsletter-fineprint {
     margin-top: 1.5rem;
     font-size: 0.62rem;
@@ -1708,14 +1734,14 @@
   .contact {
     background: var(--ink);
     color: var(--white);
-    padding: 9rem 3rem;
+    padding: 10rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
   }
 
-  .contact-text .label { color: var(--grey-soft); margin-bottom: 1.5rem; display: block; }
+  .contact-text .label { color: var(--grey-light); margin-bottom: 1.5rem; display: block; }
 
   .contact-text h2 {
     font-family: 'Inter', sans-serif;
@@ -1729,7 +1755,7 @@
   .contact-text h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-light);
+    color: var(--whisper);
     font-weight: 300;
   }
   .contact-text p {
@@ -1737,7 +1763,7 @@
     font-size: 1.2rem;
     font-style: italic;
     line-height: 1.7;
-    color: var(--grey-soft);
+    color: var(--grey-light);
     max-width: 460px;
     font-weight: 300;
   }
@@ -1803,7 +1829,7 @@
 
   /* ============ FOOTER ============ */
   footer {
-    background: var(--ink-deep);
+    background: var(--black);
     color: var(--white);
     padding: 3rem;
   }
@@ -1828,12 +1854,12 @@
     font-size: 0.62rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--grey-soft);
+    color: var(--grey-light);
     text-align: center;
   }
   .footer-social { display: flex; gap: 1.5rem; }
   .footer-social a {
-    color: var(--grey-soft);
+    color: var(--grey-light);
     text-decoration: none;
     font-size: 0.65rem;
     letter-spacing: 0.32em;
@@ -1854,6 +1880,28 @@
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ FADE-IN ON SCROLL ============ */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Hero must be visible immediately — its own animations handle entry */
+  .hero.fade-in { opacity: 1; transform: none; }
+
+  /* Reduced motion — respect user preference */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   /* ============ RESPONSIVE ============ */
@@ -1888,41 +1936,42 @@
     .nav-logo img { height: 32px; width: auto; object-fit: contain; }
     .hero-eyebrow .line { display: none; }
     .hero-eyebrow { gap: 0; }
-    .hero { grid-template-columns: 1fr; gap: 3rem; padding: 7rem 1.5rem 4rem; }
+    .hero { grid-template-columns: 1fr; gap: 3rem; padding: 7rem 1.5rem 6rem; }
+    h1.hero-title { font-size: clamp(2.8rem, 9vw, 4rem); line-height: 1; }
     .hero-image-wrap { max-width: 420px; margin: 0 auto; width: 100%; }
     .scroll-hint { display: none; }
-    .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem; }
     .about-image { max-width: 420px; margin: 0 auto; width: 100%; }
     .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
-    .method { padding: 5rem 1.5rem; }
+    .method { padding: 6rem 1.5rem; }
     .method-grid { grid-template-columns: 1fr; }
     .method-step { border-right: none; border-bottom: 1px solid var(--line); }
     .method-step:last-child { border-bottom: none; }
     .method-logo { max-width: 240px; }
     .method-atmos { margin-top: 4rem; aspect-ratio: 4/3; }
-    .results { padding: 4rem 1.5rem; }
+    .results { padding: 6rem 1.5rem; }
     .results-inner { grid-template-columns: 1fr; gap: 3rem; }
     .results-image { max-width: 360px; }
     .results-stats { gap: 1.5rem; }
-    .rituals { padding: 5rem 1.5rem; }
+    .rituals { padding: 6rem 1.5rem; }
     .rituals-grid { grid-template-columns: 1fr; }
     .ritual-card { padding: 2rem; min-height: 0; }
-    .services { padding: 5rem 1.5rem; }
+    .services { padding: 6rem 1.5rem; }
     .services-header { grid-template-columns: 1fr; gap: 2rem; }
     .services-grid { grid-template-columns: 1fr; }
     .service-card { padding: 2rem; }
     .trusted { padding: 3.5rem 0; }
-    .testimonials { padding: 5rem 1.5rem; }
+    .testimonials { padding: 6rem 1.5rem; }
     .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .testimonial-card { padding: 2.5rem 2rem; }
-    .newsletter { padding: 5rem 1.5rem; }
+    .newsletter { padding: 6rem 1.5rem; }
     .newsletter-form { flex-direction: column; }
     .newsletter-form input[type="email"] { width: 100%; }
     .newsletter-form button { width: 100%; }
-    .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem; }
     footer { padding: 2rem 1.5rem; }
     .footer-row { flex-direction: column; text-align: center; }
-    .skin-reading { padding: 5rem 1.5rem; }
+    .skin-reading { padding: 6rem 1.5rem; }
     .reader-container { padding: 2rem 1.5rem; }
     .results-grid { grid-template-columns: 1fr; }
     .recos-section, .results-cta { padding: 2rem 1.5rem; }
@@ -2066,6 +2115,8 @@
   </div>
 </section>
 
+<div class="divider"></div>
+
 <section class="results" id="results">
   <div class="results-inner">
     <div class="results-image">
@@ -2156,6 +2207,8 @@
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <section class="skin-reading" id="skin-reading">
   <div class="skin-reading-inner">
@@ -2677,6 +2730,22 @@
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
       newsletterForm.reset();
       newsletterThanks.classList.add('visible');
+    });
+  }
+
+  // Scroll fade-in
+  if ('IntersectionObserver' in window) {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section, .ritual-card, .service-card, .result-card, .testimonial-card').forEach((el) => {
+      el.classList.add('fade-in');
+      fadeObserver.observe(el);
     });
   }
 
