@@ -9,17 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --white: #fefdfb;
-    --off-white: #f9f6f1;
-    --paper: #f2ede4;
-    --line: #e6dfd2;
-    --grey-soft: #c9c2b4;
-    --grey: #918a7e;
-    --grey-deep: #6b6459;
-    --warm-accent: #9c8770;
-    --warm-light: #c4b5a0;
-    --ink: #2d2823;
-    --ink-deep: #1c1814;
+    --white: #ffffff;
+    --off-white: #f7f7f6;
+    --paper: #f1f0ee;
+    --cream: #ededeb;
+    --line: #e3e2df;
+    --grey-soft: #c0bfbc;
+    --grey: #8a8987;
+    --grey-deep: #5a5855;
+    --warm-accent: #5a5855;
+    --warm-light: #b8b6b3;
+    --ink: #25241f;
+    --ink-deep: #15140f;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,7 +45,7 @@
     right: -10%;
     width: 50vw;
     height: 50vw;
-    background: radial-gradient(circle, rgba(196, 181, 160, 0.18), transparent 65%);
+    background: radial-gradient(circle, rgba(184, 182, 179, 0.18), transparent 65%);
     pointer-events: none;
     z-index: -1;
   }
@@ -56,7 +57,7 @@
     left: -10%;
     width: 40vw;
     height: 40vw;
-    background: radial-gradient(circle, rgba(156, 135, 112, 0.08), transparent 60%);
+    background: radial-gradient(circle, rgba(90, 88, 85, 0.07), transparent 60%);
     pointer-events: none;
     z-index: -1;
   }
@@ -254,40 +255,93 @@
 
   .hero-image-wrap {
     position: relative;
-    aspect-ratio: 4/5;
+    aspect-ratio: 1/1;
     opacity: 0;
     animation: fadeUp 1.4s 0.3s forwards;
   }
 
-  .hero-image {
+  .placeholder-frame {
     width: 100%;
     height: 100%;
-    background: linear-gradient(160deg, var(--paper) 0%, var(--off-white) 100%);
+    background: var(--paper);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .hero-image svg.figure {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  .placeholder-inner {
+    border: 1px solid var(--line);
+    padding: 2.5rem 3rem;
+    text-align: center;
+    background: rgba(255,255,255,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 60%;
   }
 
-  .hero-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6), transparent 60%);
+  .placeholder-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--grey);
   }
 
-  .hero-frame {
-    position: absolute;
-    inset: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    pointer-events: none;
-    z-index: 3;
+  .placeholder-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
+    line-height: 1.7;
+    font-weight: 400;
   }
+
+  .placeholder-text em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+
+  .hero-trust {
+    margin-top: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 1s forwards;
+  }
+  .hero-trust span {
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: 400;
+  }
+
+  /* Burger menu */
+  .nav-burger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--ink);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2) { opacity: 0; }
+  .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
   .scroll-hint {
     position: absolute;
@@ -362,17 +416,8 @@
 
   .about-image {
     aspect-ratio: 3/4;
-    background: linear-gradient(155deg, var(--paper), var(--off-white));
     position: relative;
     overflow: hidden;
-  }
-  .about-image::before {
-    content: '';
-    position: absolute;
-    inset: 1.5rem;
-    border: 1px solid var(--line);
-    z-index: 2;
-    pointer-events: none;
   }
 
   .about-tag { margin-bottom: 1.5rem; }
@@ -444,9 +489,11 @@
     margin: 0 auto 5rem;
   }
 
+  .method-header > .label { display: block; margin-bottom: 2rem; }
+
   .method-logo {
     margin: 0 auto 3rem;
-    max-width: 380px;
+    max-width: 320px;
   }
 
   .method-logo img {
@@ -524,6 +571,144 @@
     line-height: 1.75;
     font-weight: 300;
   }
+
+  /* ============ SIGNATURE RITUALS ============ */
+  .rituals {
+    padding: 9rem 3rem;
+    background: var(--white);
+  }
+
+  .rituals-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .rituals-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 5rem;
+  }
+
+  .rituals-header > .label { display: block; margin-bottom: 1.5rem; }
+
+  .rituals-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .rituals-header h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+
+  .rituals-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--grey-deep);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .rituals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .ritual-card {
+    background: var(--cream);
+    padding: 2.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background 0.5s ease, transform 0.4s ease;
+    min-height: 340px;
+  }
+
+  .ritual-card:hover {
+    background: var(--off-white);
+    transform: translateY(-2px);
+  }
+
+  .ritual-duration {
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .ritual-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .ritual-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+
+  .ritual-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .ritual-best {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .best-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: 400;
+  }
+
+  .best-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+
+  .ritual-link {
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+    transition: border-color 0.3s ease;
+  }
+
+  .ritual-link:hover { border-bottom-color: var(--ink); }
 
   /* ============ SKIN READING ============ */
   .skin-reading {
@@ -1145,6 +1330,8 @@
     margin-right: auto;
   }
 
+  .services-header > div .label { display: block; margin-bottom: 1.5rem; }
+
   .services-header h2 {
     font-family: 'Inter', sans-serif;
     font-weight: 200;
@@ -1245,41 +1432,201 @@
     text-decoration: none;
   }
 
-  /* ============ TESTIMONIAL ============ */
-  .testimonial {
-    padding: 10rem 3rem;
-    text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
+  /* ============ TRUSTED PARTNERS ============ */
+  .trusted {
     background: var(--white);
+    padding: 5rem 0 5rem;
+    border-top: 1px solid var(--line);
+  }
+  .trusted-inner { max-width: 1400px; margin: 0 auto; }
+  .trusted-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 0 1.5rem;
+  }
+  .trusted-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .trusted-track {
+    display: inline-flex;
+    animation: scroll-left 60s linear infinite;
+    gap: 3.5rem;
+  }
+  .trusted-track span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .trusted-track .dot { color: var(--grey-soft); }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials {
+    padding: 9rem 3rem;
+    background: var(--off-white);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .testimonials-header .label { display: block; margin-bottom: 1.5rem; }
+  .testimonials-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .testimonials-header h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
   }
 
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: 8rem;
+    font-size: 5rem;
     color: var(--grey-soft);
-    line-height: 0.5;
-    margin-bottom: 1rem;
+    line-height: 0.4;
+    margin-bottom: 1.5rem;
   }
 
-  .testimonial blockquote {
+  .testimonial-card blockquote {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    line-height: 1.4;
-    color: var(--ink);
-    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--grey-deep);
+    margin-bottom: 2rem;
     font-weight: 300;
+    flex-grow: 1;
   }
 
-  .testimonial cite {
+  .testimonial-card figcaption {
     font-style: normal;
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ============ NEWSLETTER ============ */
+  .newsletter {
+    background: var(--paper);
+    padding: 8rem 3rem;
+  }
+  .newsletter-inner {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .newsletter-inner .label { display: block; margin-bottom: 1.5rem; }
+  .newsletter-inner h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .newsletter-inner h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+  .newsletter-inner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--grey-deep);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 480px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .newsletter-form input[type="email"] {
+    flex: 1 1 220px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 1rem 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    font-weight: 300;
+    transition: border-color 0.3s ease;
+  }
+  .newsletter-form input[type="email"]::placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--grey);
+  }
+  .newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+  .newsletter-form button {
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 1rem 1.8rem;
     font-size: 0.7rem;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s ease;
+    font-weight: 400;
+  }
+  .newsletter-form button:hover { background: var(--ink-deep); }
+  .newsletter-fineprint {
+    margin-top: 1.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--grey);
   }
+  .newsletter-thanks {
+    margin-top: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--grey-deep);
+    display: none;
+  }
+  .newsletter-thanks.visible { display: block; }
 
   /* ============ CONTACT ============ */
   .contact {
@@ -1383,6 +1730,8 @@
     background: var(--ink-deep);
     color: var(--white);
     padding: 3rem;
+  }
+  .footer-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1391,7 +1740,7 @@
   }
   .footer-brand { display: flex; align-items: center; gap: 1rem; }
   .footer-brand img {
-    height: 24px;
+    height: 32px;
     width: auto;
     filter: invert(1) brightness(0.95);
     opacity: 0.85;
@@ -1402,6 +1751,7 @@
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--grey-soft);
+    text-align: center;
   }
   .footer-social { display: flex; gap: 1.5rem; }
   .footer-social a {
@@ -1413,6 +1763,15 @@
     transition: color 0.3s ease;
   }
   .footer-social a:hover { color: var(--white); }
+  .footer-tagline {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+  }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -1422,25 +1781,57 @@
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .nav-cta { display: none; }
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0; right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--white);
+      padding: 1rem 1.5rem 2rem;
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-110%);
+      transition: transform 0.4s ease;
+      z-index: 49;
+    }
+    .nav-links.open { transform: translateY(0); }
+    .nav-links li {
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
+    }
+    .nav-links li:last-child { border-bottom: none; }
     .nav-logo img { height: 22px; }
     .hero { grid-template-columns: 1fr; gap: 3rem; padding: 7rem 1.5rem 4rem; }
-    .hero-image-wrap { order: -1; max-width: 380px; margin: 0 auto; }
+    .hero-image-wrap { max-width: 420px; margin: 0 auto; width: 100%; }
     .scroll-hint { display: none; }
     .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    .about-image { max-width: 420px; margin: 0 auto; width: 100%; }
     .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
     .method { padding: 5rem 1.5rem; }
     .method-grid { grid-template-columns: 1fr; }
     .method-step { border-right: none; border-bottom: 1px solid var(--line); }
     .method-step:last-child { border-bottom: none; }
-    .method-logo { max-width: 280px; }
+    .method-logo { max-width: 240px; }
+    .rituals { padding: 5rem 1.5rem; }
+    .rituals-grid { grid-template-columns: 1fr; }
+    .ritual-card { padding: 2rem; min-height: 0; }
     .services { padding: 5rem 1.5rem; }
     .services-header { grid-template-columns: 1fr; gap: 2rem; }
     .services-grid { grid-template-columns: 1fr; }
     .service-card { padding: 2rem; }
-    .testimonial { padding: 6rem 1.5rem; }
+    .trusted { padding: 3.5rem 0; }
+    .testimonials { padding: 5rem 1.5rem; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testimonial-card { padding: 2.5rem 2rem; }
+    .newsletter { padding: 5rem 1.5rem; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form input[type="email"] { width: 100%; }
+    .newsletter-form button { width: 100%; }
     .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
-    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    footer { padding: 2rem 1.5rem; }
+    .footer-row { flex-direction: column; text-align: center; }
     .skin-reading { padding: 5rem 1.5rem; }
     .reader-container { padding: 2rem 1.5rem; }
     .results-grid { grid-template-columns: 1fr; }
@@ -1454,62 +1845,49 @@
 
 <nav>
   <div class="nav-logo">
-    <img src="/assets/skyreset-logo.png" alt="SKYRESET Method" />
+    <img src="/assets/skyreset-logo.jpg" alt="SKYRESET Method" />
   </div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">Story</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#skin-reading">Skin Reading</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#offerings">Rituals</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Book a session</a>
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <header class="hero">
   <div class="hero-text">
     <div class="hero-eyebrow">
       <span class="line"></span>
-      <span>Skincare Expert · SKYRESET Method™</span>
+      <span>Skincare Expert · Dubai &amp; Toronto</span>
     </div>
     <h1 class="hero-title">
       Skin, gently<br>
       <em>brought back to life.</em>
     </h1>
     <p class="hero-sub">
-      A quiet, intentional approach to skincare — between Dubai and Toronto. Private experiences, expert rituals, and the signature SKYRESET Method™.
+      An intentional approach to skincare, between two cities. Private rituals, expert care, and a proprietary method that listens before it acts — the SKYRESET Method™.
     </p>
     <div class="hero-cta">
-      <a href="#contact" class="btn-primary"><span>Book an experience</span></a>
-      <a href="#method" class="btn-ghost">Discover the method</a>
+      <a href="#contact" class="btn-primary"><span>Book a session</span></a>
+      <a href="#skin-reading" class="btn-ghost">Try the Skin Reading →</a>
+    </div>
+    <div class="hero-trust">
+      <span>✦ Trusted by 8,500+ readers</span>
     </div>
   </div>
 
   <div class="hero-image-wrap">
-    <div class="hero-image">
-      <svg class="figure" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="figGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#8e8c87" stop-opacity="0.25"/>
-            <stop offset="100%" stop-color="#2a2826" stop-opacity="0.45"/>
-          </linearGradient>
-          <radialGradient id="lightSpot" cx="30%" cy="25%">
-            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="400" height="500" fill="url(#lightSpot)"/>
-        <path d="M 100 500 Q 100 380 140 340 Q 170 310 200 305 Q 230 310 260 340 Q 300 380 300 500 Z"
-              fill="url(#figGrad)"/>
-        <path d="M 175 340 Q 175 300 200 295 Q 225 300 225 340"
-              fill="#2a2826" opacity="0.2"/>
-        <ellipse cx="200" cy="240" rx="55" ry="70" fill="#2a2826" opacity="0.12"/>
-        <path d="M 145 220 Q 130 280 135 360 Q 145 380 155 360 Q 160 300 165 250"
-              fill="#1a1817" opacity="0.3"/>
-        <path d="M 255 220 Q 270 280 265 360 Q 255 380 245 360 Q 240 300 235 250"
-              fill="#1a1817" opacity="0.3"/>
-      </svg>
-      <div class="hero-frame"></div>
+    <div class="hero-image placeholder-frame">
+      <div class="placeholder-inner">
+        <span class="placeholder-mark">✦</span>
+        <span class="placeholder-text">Photo to come<br><em>Bruna at work</em></span>
+      </div>
     </div>
   </div>
 
@@ -1521,43 +1899,29 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Skincare</span><span class="dot">·</span>
-    <span>SKYRESET Method™</span><span class="dot">·</span>
-    <span>Expert Care</span><span class="dot">·</span>
-    <span>Private Rituals</span><span class="dot">·</span>
-    <span>Dubai · Toronto</span><span class="dot">·</span>
-    <span>Skincare</span><span class="dot">·</span>
-    <span>SKYRESET Method™</span><span class="dot">·</span>
-    <span>Expert Care</span><span class="dot">·</span>
-    <span>Private Rituals</span><span class="dot">·</span>
-    <span>Dubai · Toronto</span><span class="dot">·</span>
+    <span>SKINCARE</span><span class="dot">·</span>
+    <span>SKYRESET METHOD™</span><span class="dot">·</span>
+    <span>PRIVATE RITUALS</span><span class="dot">·</span>
+    <span>DUBAI · TORONTO</span><span class="dot">·</span>
+    <span>BY INVITATION</span><span class="dot">·</span>
+    <span>SKINCARE</span><span class="dot">·</span>
+    <span>SKYRESET METHOD™</span><span class="dot">·</span>
+    <span>PRIVATE RITUALS</span><span class="dot">·</span>
+    <span>DUBAI · TORONTO</span><span class="dot">·</span>
+    <span>BY INVITATION</span><span class="dot">·</span>
   </div>
 </div>
 
 <section class="about" id="about">
-  <div class="about-image">
-    <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-      <defs>
-        <linearGradient id="portraitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#fafafa"/>
-          <stop offset="100%" stop-color="#e8e8e6"/>
-        </linearGradient>
-      </defs>
-      <rect width="300" height="400" fill="url(#portraitGrad)"/>
-      <g opacity="0.3">
-        <rect x="80" y="120" width="40" height="120" rx="2" fill="#2a2826" opacity="0.55"/>
-        <rect x="88" y="100" width="24" height="25" fill="#2a2826" opacity="0.65"/>
-        <rect x="140" y="200" width="55" height="55" rx="3" fill="#2a2826" opacity="0.4"/>
-        <rect x="145" y="190" width="45" height="12" fill="#6b6864" opacity="0.6"/>
-        <rect x="210" y="150" width="28" height="90" rx="2" fill="#2a2826" opacity="0.5"/>
-        <circle cx="224" cy="142" r="6" fill="#2a2826" opacity="0.7"/>
-        <path d="M 50 320 Q 70 280 100 290 Q 90 320 60 340 Z" fill="#2a2826" opacity="0.25"/>
-      </g>
-    </svg>
+  <div class="about-image placeholder-frame">
+    <div class="placeholder-inner">
+      <span class="placeholder-mark">✦</span>
+      <span class="placeholder-text">Photo to come<br><em>Portrait of Bruna</em></span>
+    </div>
   </div>
 
   <div>
-    <span class="label about-tag">— The story</span>
+    <span class="label about-tag">— The Story</span>
     <h2>Between two cities,<br><em>one philosophy.</em></h2>
     <div class="about-body">
       <p>
@@ -1578,8 +1942,8 @@
         <span class="stat-label">Cities</span>
       </div>
       <div>
-        <span class="stat-num">∞</span>
-        <span class="stat-label">Signature rituals</span>
+        <span class="stat-num">100<em>+</em></span>
+        <span class="stat-label">Faces read</span>
       </div>
     </div>
   </div>
@@ -1587,8 +1951,9 @@
 
 <section class="method" id="method">
   <div class="method-header">
+    <span class="label">— A proprietary method</span>
     <div class="method-logo">
-      <img src="/assets/skyreset-logo.png" alt="SKYRESET Method™" />
+      <img src="/assets/skyreset-logo.jpg" alt="SKYRESET Method™" />
     </div>
     <h2>Three movements<br>to <em>reset</em> the skin.</h2>
     <p>A proprietary method that doesn't chase symptoms — it tends to the whole landscape of your skin. Crafted for those who have tried everything.</p>
@@ -1609,6 +1974,78 @@
       <div class="step-num">— III.</div>
       <h3>Seal</h3>
       <p>A closing ritual that anchors everything we've revealed. What's been awakened becomes lasting — a new memory, beautifully held.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rituals" id="rituals">
+  <div class="rituals-inner">
+    <div class="rituals-header">
+      <span class="label">— The rituals</span>
+      <h2>Curated treatments,<br><em>for every season.</em></h2>
+      <p>Each ritual builds on the SKYRESET Method™ — calibrated to where your skin is, today.</p>
+    </div>
+
+    <div class="rituals-grid">
+      <article class="ritual-card">
+        <div class="ritual-top">
+          <div class="ritual-duration">— 90 minutes</div>
+          <h3>The Reset Facial</h3>
+          <p>The full SKYRESET Method™ from start to finish. Deep diagnosis, sculpting massage, and a closing ritual that anchors the work.</p>
+        </div>
+        <div class="ritual-bottom">
+          <div class="ritual-best">
+            <span class="best-label">Best for</span>
+            <span class="best-value">First-time clients, full reset</span>
+          </div>
+          <a href="#contact" class="ritual-link">Inquire →</a>
+        </div>
+      </article>
+
+      <article class="ritual-card">
+        <div class="ritual-top">
+          <div class="ritual-duration">— 60 minutes</div>
+          <h3>Sculpting Lymphatic</h3>
+          <p>Manual lymphatic drainage and contouring massage. The face emerges defined, decongested, alive.</p>
+        </div>
+        <div class="ritual-bottom">
+          <div class="ritual-best">
+            <span class="best-label">Best for</span>
+            <span class="best-value">Puffiness, dullness, jawline</span>
+          </div>
+          <a href="#contact" class="ritual-link">Inquire →</a>
+        </div>
+      </article>
+
+      <article class="ritual-card">
+        <div class="ritual-top">
+          <div class="ritual-duration">— 45 minutes</div>
+          <h3>Glow Reset Express</h3>
+          <p>A focused ritual designed for between sessions. Keeps the skin in conversation with itself.</p>
+        </div>
+        <div class="ritual-bottom">
+          <div class="ritual-best">
+            <span class="best-label">Best for</span>
+            <span class="best-value">Maintenance, pre-event</span>
+          </div>
+          <a href="#contact" class="ritual-link">Inquire →</a>
+        </div>
+      </article>
+
+      <article class="ritual-card">
+        <div class="ritual-top">
+          <div class="ritual-duration">— 2h30</div>
+          <h3>The Full Journey</h3>
+          <p>An extended experience combining The Reset Facial, Sculpting Lymphatic, and a personalized take-home ritual.</p>
+        </div>
+        <div class="ritual-bottom">
+          <div class="ritual-best">
+            <span class="best-label">Best for</span>
+            <span class="best-value">Deep work, special occasions</span>
+          </div>
+          <a href="#contact" class="ritual-link">Inquire →</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1733,9 +2170,12 @@
   </div>
 </section>
 
-<section class="services" id="services">
+<section class="services" id="offerings">
   <div class="services-header">
-    <h2>An <em>intimate</em> offering.</h2>
+    <div>
+      <span class="label">— Offerings</span>
+      <h2>An <em>intimate</em> offering.</h2>
+    </div>
     <p>Each experience is treated like something rare — selective, deeply personal, and always rooted in clear intention.</p>
   </div>
 
@@ -1746,11 +2186,11 @@
         <path d="M 16 18 Q 22 14 28 18 M 16 26 Q 22 30 28 26"/>
         <circle cx="22" cy="22" r="2.5" fill="currentColor"/>
       </svg>
-      <h3>Private Skincare Experience</h3>
-      <p>The signature SKYRESET Method™ treatment, two hours in a private suite in Dubai or Toronto. Skin reading, sculpting massage, and bespoke ritual.</p>
+      <h3>Private Session</h3>
+      <p>The signature SKYRESET Method™ in a private suite in Dubai or Toronto. Skin reading, sculpting massage, and a closing ritual — all together, in your time.</p>
       <div class="service-meta">
         <span class="price">By request</span>
-        <span class="more">Inquire →</span>
+        <a href="#contact" class="more">Book →</a>
       </div>
     </article>
 
@@ -1763,8 +2203,8 @@
       <h3>1:1 Consultation</h3>
       <p>A remote diagnosis, a stripped-back routine, and four weeks of close guidance. The right way to start over — calmly, and with intention.</p>
       <div class="service-meta">
-        <span class="price">Dedicated program</span>
-        <span class="more">Apply →</span>
+        <span class="price">4-week program</span>
+        <a href="#contact" class="more">Apply →</a>
       </div>
     </article>
 
@@ -1773,7 +2213,7 @@
         <circle cx="22" cy="22" r="18"/>
         <circle cx="22" cy="22" r="3" fill="currentColor"/>
       </svg>
-      <h3>Skin Reading by Bruna</h3>
+      <h3>Skin Reading</h3>
       <p>A complimentary AI-powered first reading of your skin, in Bruna's voice. The gentle conversation that begins everything else.</p>
       <div class="service-meta">
         <span class="price">Complimentary</span>
@@ -1783,19 +2223,82 @@
   </div>
 </section>
 
-<section class="testimonial">
-  <div class="quote-mark">"</div>
-  <blockquote>
-    Bruna reads skin in a way I had never experienced before. In a single session, she undid years of bad habits — and put something quieter, truer, in their place.
-  </blockquote>
-  <cite>— C.M., Dubai client</cite>
+<section class="trusted">
+  <div class="trusted-inner">
+    <div class="trusted-header">
+      <span class="label">— Trusted partners</span>
+    </div>
+    <div class="trusted-marquee" aria-hidden="true">
+      <div class="trusted-track">
+        <span>AUGUSTINUS BADER</span><span class="dot">·</span>
+        <span>LA MER</span><span class="dot">·</span>
+        <span>SISLEY</span><span class="dot">·</span>
+        <span>ZO SKIN HEALTH</span><span class="dot">·</span>
+        <span>BIOLOGIQUE RECHERCHE</span><span class="dot">·</span>
+        <span>DR. BARBARA STURM</span><span class="dot">·</span>
+        <span>AUGUSTINUS BADER</span><span class="dot">·</span>
+        <span>LA MER</span><span class="dot">·</span>
+        <span>SISLEY</span><span class="dot">·</span>
+        <span>ZO SKIN HEALTH</span><span class="dot">·</span>
+        <span>BIOLOGIQUE RECHERCHE</span><span class="dot">·</span>
+        <span>DR. BARBARA STURM</span><span class="dot">·</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-header">
+    <span class="label">— Words from the suite</span>
+    <h2>What clients<br><em>have said.</em></h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <figure class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <blockquote>
+        Bruna reads skin in a way I had never experienced before. In a single session, she undid years of bad habits — and put something quieter, truer, in their place.
+      </blockquote>
+      <figcaption>— C.M., Dubai client</figcaption>
+    </figure>
+
+    <figure class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <blockquote>
+        I've worked with skincare experts on three continents. Bruna's reading was the first that felt entirely tailored — not a protocol, a conversation.
+      </blockquote>
+      <figcaption>— A.K., Toronto</figcaption>
+    </figure>
+
+    <figure class="testimonial-card">
+      <div class="quote-mark">"</div>
+      <blockquote>
+        She did in 90 minutes what 10 years of products couldn't. My skin remembers her work weeks after.
+      </blockquote>
+      <figcaption>— N.D., Dubai</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <span class="label">— Notes from Bruna</span>
+    <h2>Quiet updates,<br><em>rare invitations.</em></h2>
+    <p>A short letter from time to time. New rituals, travel notes between Dubai and Toronto, and the occasional reading invitation. Never noise.</p>
+    <form class="newsletter-form" id="newsletterForm" novalidate>
+      <input type="email" placeholder="Email address" name="email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="newsletter-fineprint">By submitting, you agree to receive emails from Bruna. Unsubscribe anytime.</div>
+    <div class="newsletter-thanks" id="newsletterThanks">Thank you — kept gently on the list.</div>
+  </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="contact-text">
     <span class="label">— Get in touch</span>
     <h2>A meeting,<br><em>tailored to you.</em></h2>
-    <p>Experiences are by invitation only. Share your intention, your city, your timing — Bruna replies personally within 48 hours.</p>
+    <p>By invitation only. Share your intention, your city, your timing — Bruna replies personally within 48 hours.</p>
   </div>
 
   <div class="contact-form">
@@ -1803,7 +2306,7 @@
     <input type="email" placeholder="Email address" name="email" />
     <select name="service">
       <option value="">— Type of experience</option>
-      <option>Private Skincare Experience</option>
+      <option>Private Session</option>
       <option>1:1 Consultation</option>
       <option>Skin Reading</option>
       <option>Other</option>
@@ -1820,17 +2323,20 @@
 </section>
 
 <footer>
-  <div class="footer-brand">
-    <img src="/assets/skyreset-logo.png" alt="SKYRESET Method™" />
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/assets/skyreset-logo.jpg" alt="SKYRESET Method™" />
+    </div>
+    <div class="footer-meta">
+      © 2026 — All rights reserved · SKYRESET Method™
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/bybrunabisol" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#contact">Email</a>
+    </div>
   </div>
-  <div class="footer-meta">
-    © 2026 — All rights reserved · SKYRESET Method™
-  </div>
-  <div class="footer-social">
-    <a href="https://instagram.com/bybrunabisol" target="_blank" rel="noopener">Instagram</a>
-    <a href="#">TikTok</a>
-    <a href="#contact">Email</a>
-  </div>
+  <div class="footer-tagline">Designed with care · Dubai &amp; Toronto</div>
 </footer>
 
 <script>
@@ -2035,6 +2541,37 @@
     previewImg.src = '';
     showStep('upload');
   });
+
+  // Burger menu
+  const burger = document.getElementById('navBurger');
+  const navLinksEl = document.getElementById('navLinks');
+  if (burger && navLinksEl) {
+    burger.addEventListener('click', () => {
+      const open = navLinksEl.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinksEl.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Newsletter form (placeholder — confirms locally; wire to provider later)
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterThanks = document.getElementById('newsletterThanks');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterForm.querySelector('input[type="email"]').value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+      newsletterForm.reset();
+      newsletterThanks.classList.add('visible');
+    });
+  }
 
 })();
 </script>
