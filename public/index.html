@@ -1169,7 +1169,7 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -1242,6 +1242,7 @@
     color: var(--ink);
     cursor: pointer;
     font-weight: 400;
+    text-decoration: none;
   }
 
   /* ============ TESTIMONIAL ============ */
@@ -1469,14 +1470,14 @@
   <div class="hero-text">
     <div class="hero-eyebrow">
       <span class="line"></span>
-      <span>Bruna Bisol · UGC Beauty &amp; Travel</span>
+      <span>Skincare Expert · SKYRESET Method™</span>
     </div>
     <h1 class="hero-title">
       Skin, gently<br>
       <em>brought back to life.</em>
     </h1>
     <p class="hero-sub">
-      A precise, intentional approach to skincare — between Dubai and Toronto. Private experiences, soulful brand storytelling, and the signature SKYRESET Method™.
+      A quiet, intentional approach to skincare — between Dubai and Toronto. Private experiences, expert rituals, and the signature SKYRESET Method™.
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary"><span>Book an experience</span></a>
@@ -1520,15 +1521,15 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Beauty</span><span class="dot">·</span>
-    <span>Travel</span><span class="dot">·</span>
+    <span>Skincare</span><span class="dot">·</span>
     <span>SKYRESET Method™</span><span class="dot">·</span>
-    <span>UGC Creator</span><span class="dot">·</span>
+    <span>Expert Care</span><span class="dot">·</span>
+    <span>Private Rituals</span><span class="dot">·</span>
     <span>Dubai · Toronto</span><span class="dot">·</span>
-    <span>Beauty</span><span class="dot">·</span>
-    <span>Travel</span><span class="dot">·</span>
+    <span>Skincare</span><span class="dot">·</span>
     <span>SKYRESET Method™</span><span class="dot">·</span>
-    <span>UGC Creator</span><span class="dot">·</span>
+    <span>Expert Care</span><span class="dot">·</span>
+    <span>Private Rituals</span><span class="dot">·</span>
     <span>Dubai · Toronto</span><span class="dot">·</span>
   </div>
 </div>
@@ -1563,7 +1564,7 @@
         Bruna's work began with a simple belief: skin doesn't need to be fixed — it needs to be heard. After years moving between the world's beauty capitals, she shaped an approach that pairs real science with sensory ritual.
       </p>
       <p>
-        Today, that work lives on in private treatments offered by invitation, in editorial content for the brands she truly loves, and in a proprietary method that resets your relationship with your skin — the SKYRESET Method™.
+        Today, that work lives on in private skincare rituals offered by invitation, and in a proprietary method that resets your relationship with your skin — the SKYRESET Method™.
       </p>
     </div>
 
@@ -1755,34 +1756,6 @@
 
     <article class="service-card">
       <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
-        <rect x="9" y="13" width="26" height="19" rx="1.5"/>
-        <circle cx="22" cy="22" r="5"/>
-        <circle cx="22" cy="22" r="1.8" fill="currentColor"/>
-        <rect x="18" y="9" width="8" height="4"/>
-      </svg>
-      <h3>UGC &amp; Brand Content</h3>
-      <p>Authentic, soulful content for beauty and lifestyle brands. Creative direction, capture, and ready-to-publish deliverables — crafted with care.</p>
-      <div class="service-meta">
-        <span class="price">On request</span>
-        <span class="more">Discuss →</span>
-      </div>
-    </article>
-
-    <article class="service-card">
-      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
-        <path d="M 9 22 L 22 9 L 35 22 L 22 35 Z"/>
-        <circle cx="22" cy="22" r="5"/>
-      </svg>
-      <h3>Travel Editorials</h3>
-      <p>Slow travel notebooks between the Middle East and North America. Quiet hotels, hidden addresses, and rituals that travel beautifully.</p>
-      <div class="service-meta">
-        <span class="price">Collaborations</span>
-        <span class="more">Explore →</span>
-      </div>
-    </article>
-
-    <article class="service-card">
-      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
         <path d="M 22 7 L 22 37 M 7 22 L 37 22"/>
         <circle cx="22" cy="22" r="12"/>
         <circle cx="22" cy="22" r="2.5" fill="currentColor"/>
@@ -1792,6 +1765,19 @@
       <div class="service-meta">
         <span class="price">Dedicated program</span>
         <span class="more">Apply →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <circle cx="22" cy="22" r="18"/>
+        <circle cx="22" cy="22" r="3" fill="currentColor"/>
+      </svg>
+      <h3>Skin Reading by Bruna</h3>
+      <p>A complimentary AI-powered first reading of your skin, in Bruna's voice. The gentle conversation that begins everything else.</p>
+      <div class="service-meta">
+        <span class="price">Complimentary</span>
+        <a href="#skin-reading" class="more">Try now →</a>
       </div>
     </article>
   </div>
@@ -1818,9 +1804,8 @@
     <select name="service">
       <option value="">— Type of experience</option>
       <option>Private Skincare Experience</option>
-      <option>UGC &amp; Brand Content</option>
-      <option>Travel Editorial</option>
       <option>1:1 Consultation</option>
+      <option>Skin Reading</option>
       <option>Other</option>
     </select>
     <select name="city">
