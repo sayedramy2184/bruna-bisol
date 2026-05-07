@@ -78,7 +78,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 50;
-    padding: 1.5rem 3rem;
+    padding: 1rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,9 +95,11 @@
   }
 
   .nav-logo img {
-    height: 28px;
+    height: 40px;
     width: auto;
-    opacity: 0.85;
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: multiply;
   }
 
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -269,6 +271,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .placeholder-flat {
+    width: 100%;
+    height: 100%;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .placeholder-flat span {
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: 400;
   }
 
   .placeholder-inner {
@@ -476,7 +496,7 @@
 
   /* ============ METHOD ============ */
   .method {
-    background: var(--off-white);
+    background: var(--white);
     color: var(--ink);
     padding: 9rem 3rem;
     position: relative;
@@ -494,12 +514,17 @@
   .method-logo {
     margin: 0 auto 3rem;
     max-width: 320px;
+    background: transparent;
+    border: none;
+    padding: 0;
   }
 
   .method-logo img {
     width: 100%;
     height: auto;
-    opacity: 0.9;
+    display: block;
+    background: transparent;
+    mix-blend-mode: multiply;
   }
 
   .method-header h2 {
@@ -575,7 +600,7 @@
   /* ============ SIGNATURE RITUALS ============ */
   .rituals {
     padding: 9rem 3rem;
-    background: var(--white);
+    background: var(--off-white);
   }
 
   .rituals-inner {
@@ -1740,8 +1765,10 @@
   }
   .footer-brand { display: flex; align-items: center; gap: 1rem; }
   .footer-brand img {
-    height: 32px;
+    height: 36px;
     width: auto;
+    object-fit: contain;
+    display: block;
     filter: invert(1) brightness(0.95);
     opacity: 0.85;
   }
@@ -1913,11 +1940,8 @@
 </div>
 
 <section class="about" id="about">
-  <div class="about-image placeholder-frame">
-    <div class="placeholder-inner">
-      <span class="placeholder-mark">✦</span>
-      <span class="placeholder-text">Photo to come<br><em>Portrait of Bruna</em></span>
-    </div>
+  <div class="about-image placeholder-flat">
+    <span>Photo to come — Portrait of Bruna</span>
   </div>
 
   <div>
