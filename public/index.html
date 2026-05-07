@@ -262,71 +262,17 @@
     animation: fadeUp 1.4s 0.3s forwards;
   }
 
-  .placeholder-frame {
+  .hero-image {
     width: 100%;
     height: 100%;
-    background: var(--paper);
-    position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
   }
-
-  .placeholder-flat {
+  .hero-image img {
     width: 100%;
     height: 100%;
-    background: var(--paper);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-  }
-  .placeholder-flat span {
-    font-size: 0.7rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--grey);
-    font-weight: 400;
-  }
-
-  .placeholder-inner {
-    border: 1px solid var(--line);
-    padding: 2.5rem 3rem;
-    text-align: center;
-    background: rgba(255,255,255,0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    min-width: 60%;
-  }
-
-  .placeholder-mark {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--grey);
-  }
-
-  .placeholder-text {
-    font-size: 0.7rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--grey);
-    line-height: 1.7;
-    font-weight: 400;
-  }
-
-  .placeholder-text em {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    text-transform: none;
-    color: var(--grey-deep);
-    font-weight: 300;
+    object-fit: cover;
+    display: block;
   }
 
   .hero-trust {
@@ -438,6 +384,12 @@
     aspect-ratio: 3/4;
     position: relative;
     overflow: hidden;
+  }
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .about-tag { margin-bottom: 1.5rem; }
@@ -595,6 +547,105 @@
     color: var(--grey-deep);
     line-height: 1.75;
     font-weight: 300;
+  }
+
+  /* ============ METHOD ATMOS IMAGE ============ */
+  .method-atmos {
+    margin: 6rem auto 0;
+    max-width: 1100px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .method-atmos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ============ RESULTS ============ */
+  .results {
+    background: var(--off-white);
+    padding: 8rem 3rem;
+  }
+  .results-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .results-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .results-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .results-text .label { display: block; margin-bottom: 1.5rem; }
+  .results-text h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .results-text h2 em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--grey-deep);
+    font-weight: 300;
+  }
+  .results-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--grey-deep);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 460px;
+  }
+  .results-stats {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .results-stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .results-stats .num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 2rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .results-stats .num em {
+    color: var(--grey);
+    font-style: normal;
+    font-size: 0.7em;
+  }
+  .results-stats .lbl {
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--grey);
   }
 
   /* ============ SIGNATURE RITUALS ============ */
@@ -1848,6 +1899,11 @@
     .method-step { border-right: none; border-bottom: 1px solid var(--line); }
     .method-step:last-child { border-bottom: none; }
     .method-logo { max-width: 240px; }
+    .method-atmos { margin-top: 4rem; aspect-ratio: 4/3; }
+    .results { padding: 4rem 1.5rem; }
+    .results-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .results-image { max-width: 360px; }
+    .results-stats { gap: 1.5rem; }
     .rituals { padding: 5rem 1.5rem; }
     .rituals-grid { grid-template-columns: 1fr; }
     .ritual-card { padding: 2rem; min-height: 0; }
@@ -1917,11 +1973,8 @@
   </div>
 
   <div class="hero-image-wrap">
-    <div class="hero-image placeholder-frame">
-      <div class="placeholder-inner">
-        <span class="placeholder-mark">✦</span>
-        <span class="placeholder-text">Photo to come<br><em>Bruna at work</em></span>
-      </div>
+    <div class="hero-image">
+      <img src="/assets/bruna-hero.jpg" alt="Bruna performing a SKYRESET Method treatment" />
     </div>
   </div>
 
@@ -1947,8 +2000,8 @@
 </div>
 
 <section class="about" id="about">
-  <div class="about-image placeholder-flat">
-    <span>Photo to come — Portrait of Bruna</span>
+  <div class="about-image">
+    <img src="/assets/bruna-portrait.jpg" alt="Portrait of Bruna" />
   </div>
 
   <div>
@@ -2005,6 +2058,29 @@
       <div class="step-num">— III.</div>
       <h3>Seal</h3>
       <p>A closing ritual that anchors everything we've revealed. What's been awakened becomes lasting — a new memory, beautifully held.</p>
+    </div>
+  </div>
+
+  <div class="method-atmos">
+    <img src="/assets/bruna-cabin.jpg" alt="The SKYRESET treatment space" />
+  </div>
+</section>
+
+<section class="results" id="results">
+  <div class="results-inner">
+    <div class="results-image">
+      <img src="/assets/bruna-before-after.jpg" alt="Before and after — SKYRESET Method results" />
+    </div>
+    <div class="results-text">
+      <span class="label">— Real results</span>
+      <h2>The skin,<br><em>remembers.</em></h2>
+      <p>What changes after a SKYRESET session isn't just visible — it's structural. Skin learns to hold its own balance. The work continues long after the touch.</p>
+      <ul class="results-stats">
+        <li><span class="num">100<em>+</em></span><span class="lbl">Faces read</span></li>
+        <li><span class="num">8.5<em>K</em></span><span class="lbl">Community</span></li>
+        <li><span class="num">By</span><span class="lbl">invitation only</span></li>
+      </ul>
+      <a href="#skin-reading" class="btn-primary"><span>Book your reading</span></a>
     </div>
   </div>
 </section>
