@@ -3,71 +3,73 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bruna Bisol — UGC Beauty &amp; Travel · SKYRESET Method™</title>
+<title>Bruna Bisol — SKYRESET Method™</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #f7f0e4;
-    --cream-deep: #f0e6d4;
-    --sand: #e8d9bf;
-    --terracotta: #c87856;
-    --terracotta-soft: #d99577;
-    --clay: #a8593c;
-    --champagne: #d4a574;
-    --champagne-light: #e8c89a;
-    --cocoa: #3d2a1f;
-    --cocoa-soft: #5a4032;
-    --warm-grey: #8a7563;
+    --white: #fefdfb;
+    --off-white: #f9f6f1;
+    --paper: #f2ede4;
+    --line: #e6dfd2;
+    --grey-soft: #c9c2b4;
+    --grey: #918a7e;
+    --grey-deep: #6b6459;
+    --warm-accent: #9c8770;
+    --warm-light: #c4b5a0;
+    --ink: #2d2823;
+    --ink-deep: #1c1814;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--cream);
-    color: var(--cocoa);
+    background: var(--white);
+    color: var(--ink);
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
 
-  /* Sun-warm grain overlay */
+  /* Subtle warm glow */
   body::before {
     content: '';
     position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 100;
-    mix-blend-mode: multiply;
-  }
-
-  /* Sun glow */
-  body::after {
-    content: '';
-    position: fixed;
-    top: -20%;
+    top: -10%;
     right: -10%;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(216, 149, 119, 0.18), transparent 60%);
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(196, 181, 160, 0.18), transparent 65%);
     pointer-events: none;
     z-index: -1;
   }
 
-  .display { font-family: 'Fraunces', serif; font-weight: 300; letter-spacing: -0.01em; }
-  .serif { font-family: 'Cormorant Garamond', serif; }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -20%;
+    left: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(156, 135, 112, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  ::selection { background: var(--warm-accent); color: var(--white); }
+
   .label {
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     font-weight: 400;
+    color: var(--grey);
   }
 
   /* ============ NAVIGATION ============ */
@@ -75,32 +77,34 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 50;
-    padding: 1.6rem 3rem;
+    padding: 1.5rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(247, 240, 228, 0.82);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(61, 42, 31, 0.06);
+    border-bottom: 1px solid var(--line);
   }
 
-  .nav-logo { display: flex; align-items: center; gap: 0.7rem; }
-  .nav-logo svg { width: 36px; height: 36px; }
-  .nav-logo-text {
-    font-family: 'Fraunces', serif;
-    font-size: 1.15rem;
-    letter-spacing: 0.18em;
-    color: var(--cocoa);
-    font-weight: 400;
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-logo img {
+    height: 28px;
+    width: auto;
+    opacity: 0.85;
   }
 
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
-    color: var(--cocoa);
+    color: var(--ink);
     text-decoration: none;
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     font-weight: 400;
     transition: color 0.4s ease;
@@ -111,36 +115,38 @@
     position: absolute;
     left: 0; bottom: -6px;
     width: 0; height: 1px;
-    background: var(--terracotta);
+    background: var(--ink);
     transition: width 0.5s ease;
   }
-  .nav-links a:hover { color: var(--terracotta); }
+  .nav-links a:hover { color: var(--grey-deep); }
   .nav-links a:hover::after { width: 100%; }
 
   .nav-cta {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--cream);
-    background: var(--terracotta);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--ink);
     border: none;
-    padding: 0.7rem 1.6rem;
-    border-radius: 100px;
+    padding: 0.85rem 1.6rem;
     cursor: pointer;
     transition: all 0.4s ease;
     text-decoration: none;
+    font-weight: 400;
   }
-  .nav-cta:hover { background: var(--clay); transform: translateY(-1px); }
+  .nav-cta:hover { background: var(--ink-deep); }
 
   /* ============ HERO ============ */
   .hero {
     min-height: 100vh;
-    padding: 8rem 3rem 4rem;
+    padding: 9rem 3rem 4rem;
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
     position: relative;
+    background: var(--white);
   }
 
   .hero-text { position: relative; z-index: 2; }
@@ -149,26 +155,27 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     opacity: 0;
     animation: fadeUp 1s 0.2s forwards;
   }
-  .hero-eyebrow .line { width: 40px; height: 1px; background: var(--terracotta); }
+  .hero-eyebrow .line { width: 40px; height: 1px; background: var(--grey); }
   .hero-eyebrow span {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--grey);
+    font-weight: 400;
   }
 
   h1.hero-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(3.5rem, 7.2vw, 6.5rem);
-    line-height: 0.98;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(3rem, 6.5vw, 5.8rem);
+    line-height: 1;
     letter-spacing: -0.02em;
-    color: var(--cocoa);
-    margin-bottom: 2rem;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
     opacity: 0;
     animation: fadeUp 1.2s 0.4s forwards;
   }
@@ -177,25 +184,27 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
-    color: var(--terracotta);
+    color: var(--warm-accent);
     letter-spacing: 0.005em;
+    font-size: 1.05em;
   }
 
   .hero-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     font-style: italic;
-    color: var(--cocoa-soft);
-    max-width: 480px;
+    color: var(--grey-deep);
+    max-width: 460px;
     line-height: 1.65;
     margin-bottom: 3rem;
     opacity: 0;
     animation: fadeUp 1s 0.6s forwards;
+    font-weight: 300;
   }
 
   .hero-cta {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: center;
     flex-wrap: wrap;
     opacity: 0;
@@ -203,46 +212,46 @@
   }
 
   .btn-primary {
-    background: var(--cocoa);
-    color: var(--cream);
+    background: var(--ink);
+    color: var(--white);
     padding: 1.1rem 2.4rem;
     border: none;
-    border-radius: 100px;
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.5s ease;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     position: relative;
     overflow: hidden;
   }
+
   .btn-primary::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--terracotta);
+    background: var(--ink-deep);
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
-    border-radius: 100px;
   }
   .btn-primary span { position: relative; z-index: 1; }
   .btn-primary:hover::before { transform: translateY(0); }
 
   .btn-ghost {
-    color: var(--cocoa);
+    color: var(--ink);
     text-decoration: none;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.1rem;
-    border-bottom: 1px solid var(--cocoa);
-    padding-bottom: 2px;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
     transition: all 0.3s ease;
   }
-  .btn-ghost:hover { color: var(--terracotta); border-color: var(--terracotta); }
+  .btn-ghost:hover { color: var(--grey-deep); border-color: var(--grey-deep); }
 
-  /* Hero Image */
   .hero-image-wrap {
     position: relative;
     aspect-ratio: 4/5;
@@ -253,12 +262,9 @@
   .hero-image {
     width: 100%;
     height: 100%;
-    background:
-      radial-gradient(ellipse at 25% 20%, rgba(232, 200, 154, 0.7), transparent 60%),
-      linear-gradient(160deg, var(--sand) 0%, var(--terracotta-soft) 100%);
+    background: linear-gradient(160deg, var(--paper) 0%, var(--off-white) 100%);
     position: relative;
     overflow: hidden;
-    border-radius: 280px 280px 24px 24px;
   }
 
   .hero-image svg.figure {
@@ -272,41 +278,16 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 70% 80%, rgba(168, 89, 60, 0.2), transparent 50%);
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6), transparent 60%);
   }
 
-  .hero-badge {
+  .hero-frame {
     position: absolute;
-    top: -25px;
-    right: -25px;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: var(--cream);
-    color: var(--cocoa);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    inset: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
     z-index: 3;
-    animation: rotate 28s linear infinite;
-    box-shadow: 0 10px 40px rgba(168, 89, 60, 0.15);
   }
-  .hero-badge svg { width: 100%; height: 100%; }
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  /* Decorative sun */
-  .hero-sun {
-    position: absolute;
-    bottom: -50px;
-    left: -40px;
-    width: 110px;
-    height: 110px;
-    z-index: 1;
-  }
-  .hero-sun svg { width: 100%; height: 100%; color: var(--champagne); }
 
   .scroll-hint {
     position: absolute;
@@ -315,15 +296,15 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--grey);
   }
   .scroll-hint .vline {
     width: 1px;
     height: 40px;
-    background: var(--warm-grey);
+    background: var(--grey-soft);
     position: relative;
     overflow: hidden;
   }
@@ -334,7 +315,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--terracotta);
+    background: var(--warm-accent);
     animation: scrollDown 2.5s infinite;
   }
   @keyframes scrollDown {
@@ -344,26 +325,26 @@
 
   /* ============ MARQUEE ============ */
   .marquee {
-    background: var(--terracotta);
-    color: var(--cream);
-    padding: 1.6rem 0;
+    background: var(--ink);
+    color: var(--white);
+    padding: 1.4rem 0;
     overflow: hidden;
     white-space: nowrap;
   }
   .marquee-track {
     display: inline-flex;
-    animation: scroll-left 38s linear infinite;
+    animation: scroll-left 40s linear infinite;
     gap: 4rem;
   }
   .marquee-track span {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 1.5rem;
-    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--cream);
+    color: var(--white);
   }
-  .marquee-track .star { color: var(--champagne-light); font-size: 1rem; }
+  .marquee-track .dot { color: var(--grey-soft); }
   @keyframes scroll-left {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -371,53 +352,53 @@
 
   /* ============ ABOUT ============ */
   .about {
-    padding: 8rem 3rem;
+    padding: 9rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 6rem;
     align-items: center;
-    position: relative;
+    background: var(--white);
   }
 
   .about-image {
     aspect-ratio: 3/4;
-    background: linear-gradient(155deg, var(--sand), var(--champagne));
+    background: linear-gradient(155deg, var(--paper), var(--off-white));
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
   }
   .about-image::before {
     content: '';
     position: absolute;
     inset: 1.5rem;
-    border: 1px solid rgba(247, 240, 228, 0.4);
+    border: 1px solid var(--line);
     z-index: 2;
     pointer-events: none;
-    border-radius: 6px;
   }
 
-  .about-tag { margin-bottom: 1.5rem; color: var(--terracotta); }
+  .about-tag { margin-bottom: 1.5rem; }
 
   .about h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     line-height: 1.05;
     margin-bottom: 2.5rem;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .about h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--terracotta);
+    color: var(--warm-accent);
+    font-weight: 300;
   }
 
   .about-body p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.25rem;
-    line-height: 1.8;
-    color: var(--cocoa-soft);
+    line-height: 1.85;
+    color: var(--grey-deep);
     margin-bottom: 1.5rem;
+    font-weight: 300;
   }
 
   .about-stats {
@@ -426,92 +407,76 @@
     gap: 2rem;
     margin-top: 4rem;
     padding-top: 3rem;
-    border-top: 1px solid rgba(61, 42, 31, 0.15);
+    border-top: 1px solid var(--line);
   }
 
   .stat-num {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: 3rem;
-    color: var(--cocoa);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 2.8rem;
+    color: var(--ink);
     display: block;
     margin-bottom: 0.4rem;
     line-height: 1;
+    letter-spacing: -0.02em;
   }
-  .stat-num em { color: var(--terracotta); font-style: normal; font-size: 0.7em; }
+  .stat-num em { color: var(--grey); font-style: normal; font-size: 0.7em; }
 
   .stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--grey);
   }
 
   /* ============ METHOD ============ */
   .method {
-    background: linear-gradient(180deg, var(--cocoa) 0%, var(--cocoa-soft) 100%);
-    color: var(--cream);
-    padding: 8rem 3rem;
+    background: var(--off-white);
+    color: var(--ink);
+    padding: 9rem 3rem;
     position: relative;
     overflow: hidden;
-  }
-
-  .method::before {
-    content: 'SKYRESET';
-    position: absolute;
-    bottom: -3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: 19vw;
-    color: rgba(216, 149, 119, 0.06);
-    letter-spacing: 0.05em;
-    pointer-events: none;
-    line-height: 1;
-  }
-
-  .method::after {
-    content: '';
-    position: absolute;
-    top: 10%;
-    right: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, rgba(216, 149, 119, 0.15), transparent 60%);
-    pointer-events: none;
   }
 
   .method-header {
     text-align: center;
     max-width: 720px;
     margin: 0 auto 5rem;
-    position: relative;
-    z-index: 2;
   }
 
-  .method-header .label { color: var(--champagne); margin-bottom: 1.5rem; display: block; }
+  .method-logo {
+    margin: 0 auto 3rem;
+    max-width: 380px;
+  }
+
+  .method-logo img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+  }
 
   .method-header h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2.8rem, 5.5vw, 4.7rem);
-    line-height: 1.05;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
     margin-bottom: 2rem;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .method-header h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--champagne-light);
+    color: var(--warm-accent);
+    font-weight: 300;
   }
 
   .method-header p {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 1.3rem;
-    color: var(--cream-deep);
+    color: var(--grey-deep);
     line-height: 1.7;
+    font-weight: 300;
   }
 
   .method-grid {
@@ -520,72 +485,51 @@
     gap: 0;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    border-top: 1px solid rgba(216, 149, 119, 0.25);
+    border-top: 1px solid var(--line);
   }
 
   .method-step {
-    padding: 3.5rem 2.5rem;
-    border-right: 1px solid rgba(216, 149, 119, 0.25);
+    padding: 4rem 2.5rem;
+    border-right: 1px solid var(--line);
     transition: background 0.5s ease;
     cursor: default;
   }
   .method-step:last-child { border-right: none; }
-  .method-step:hover { background: rgba(216, 149, 119, 0.06); }
+  .method-step:hover { background: var(--white); }
 
   .step-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 0.95rem;
-    color: var(--champagne);
-    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    color: var(--grey);
+    letter-spacing: 0.4em;
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
   }
 
   .method-step h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
     line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
   }
 
   .method-step p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
-    color: var(--cream-deep);
-    line-height: 1.7;
+    color: var(--grey-deep);
+    line-height: 1.75;
+    font-weight: 300;
   }
 
   /* ============ SKIN READING ============ */
   .skin-reading {
-    padding: 8rem 3rem;
-    background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
+    padding: 9rem 3rem;
+    background: var(--white);
     position: relative;
-    overflow: hidden;
-  }
-
-  .skin-reading::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: -10%;
-    width: 40vw;
-    height: 40vw;
-    background: radial-gradient(circle, rgba(216, 149, 119, 0.15), transparent 60%);
-    pointer-events: none;
-  }
-
-  .skin-reading::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    right: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, rgba(232, 200, 154, 0.2), transparent 60%);
-    pointer-events: none;
   }
 
   .skin-reading-inner {
@@ -602,54 +546,52 @@
   }
 
   .skin-reading-header .label {
-    color: var(--terracotta);
     margin-bottom: 1.5rem;
     display: block;
   }
 
   .skin-reading-header h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.4rem, 5vw, 4rem);
     line-height: 1.05;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
 
   .skin-reading-header h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--terracotta);
+    color: var(--warm-accent);
+    font-weight: 300;
   }
 
   .skin-reading-header p {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 1.25rem;
-    color: var(--cocoa-soft);
+    color: var(--grey-deep);
     line-height: 1.7;
+    font-weight: 300;
   }
 
   .skin-reading-disclaimer {
     text-align: center;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--grey);
     margin-top: 1.5rem;
-    padding: 0.8rem 1.5rem;
-    background: rgba(247, 240, 228, 0.6);
+    padding: 0.7rem 1.5rem;
+    background: var(--paper);
     display: inline-block;
-    border-radius: 100px;
-    border: 1px solid rgba(168, 89, 60, 0.15);
+    border: 1px solid var(--line);
   }
 
   .reader-container {
-    background: var(--cream);
-    border-radius: 20px;
+    background: var(--off-white);
     padding: 4rem;
-    box-shadow: 0 20px 60px rgba(168, 89, 60, 0.1);
-    border: 1px solid rgba(168, 89, 60, 0.08);
+    border: 1px solid var(--line);
   }
 
   .reader-steps {
@@ -664,26 +606,27 @@
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--grey-soft);
     padding: 0.5rem 1rem;
     transition: color 0.4s ease;
+    font-weight: 400;
   }
 
-  .reader-step-pill.active { color: var(--terracotta); }
-  .reader-step-pill.done { color: var(--cocoa); }
+  .reader-step-pill.active { color: var(--ink); }
+  .reader-step-pill.done { color: var(--grey-deep); }
 
   .reader-step-pill .dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: currentColor;
   }
 
   .reader-step-pill .arrow {
-    color: rgba(138, 117, 99, 0.4);
+    color: var(--grey-soft);
     margin-left: 0.5rem;
   }
 
@@ -700,59 +643,60 @@
   }
 
   .upload-zone {
-    border: 2px dashed rgba(168, 89, 60, 0.3);
-    border-radius: 16px;
+    border: 1px dashed var(--grey-soft);
     padding: 4rem 2rem;
     text-align: center;
     transition: all 0.4s ease;
     cursor: pointer;
-    background: rgba(247, 240, 228, 0.5);
+    background: var(--white);
   }
 
   .upload-zone:hover, .upload-zone.dragover {
-    border-color: var(--terracotta);
-    background: rgba(216, 149, 119, 0.05);
+    border-color: var(--ink);
+    background: var(--paper);
   }
 
   .upload-icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     margin: 0 auto 1.5rem;
-    color: var(--terracotta);
+    color: var(--grey-deep);
   }
 
   .upload-zone h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-bottom: 0.8rem;
     letter-spacing: -0.01em;
+    color: var(--ink);
   }
 
   .upload-zone p {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 1.1rem;
-    color: var(--cocoa-soft);
+    color: var(--grey-deep);
     margin-bottom: 2rem;
+    font-weight: 300;
   }
 
   .upload-button {
-    background: var(--cocoa);
-    color: var(--cream);
+    background: var(--ink);
+    color: var(--white);
     padding: 1rem 2.2rem;
     border: none;
-    border-radius: 100px;
     font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: all 0.4s ease;
     display: inline-block;
+    font-weight: 400;
   }
 
-  .upload-button:hover { background: var(--terracotta); }
+  .upload-button:hover { background: var(--ink-deep); }
 
   .upload-tips {
     margin-top: 2rem;
@@ -767,12 +711,13 @@
     align-items: center;
     gap: 0.6rem;
     font-size: 0.85rem;
-    color: var(--cocoa-soft);
+    color: var(--grey-deep);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
+    font-weight: 300;
   }
 
-  .upload-tip svg { width: 16px; height: 16px; color: var(--terracotta); }
+  .upload-tip svg { width: 14px; height: 14px; color: var(--grey); }
 
   .email-step {
     max-width: 520px;
@@ -781,14 +726,13 @@
   }
 
   .email-step .preview {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto 2rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--cream);
-    box-shadow: 0 10px 30px rgba(168, 89, 60, 0.2);
-    background: var(--sand);
+    border: 1px solid var(--line);
+    background: var(--paper);
   }
 
   .email-step .preview img {
@@ -798,44 +742,46 @@
   }
 
   .email-step h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 1.9rem;
     margin-bottom: 1rem;
     letter-spacing: -0.01em;
+    color: var(--ink);
   }
 
   .email-step p {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.15rem;
-    color: var(--cocoa-soft);
+    font-size: 1.1rem;
+    color: var(--grey-deep);
     line-height: 1.6;
     margin-bottom: 2rem;
+    font-weight: 300;
   }
 
   .email-step input[type="email"], .email-step input[type="text"] {
     width: 100%;
-    background: transparent;
-    border: 1px solid rgba(61, 42, 31, 0.2);
-    border-radius: 100px;
+    background: var(--white);
+    border: 1px solid var(--line);
     padding: 1rem 1.5rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
-    color: var(--cocoa);
+    color: var(--ink);
     margin-bottom: 1rem;
     transition: border-color 0.3s ease;
+    font-weight: 300;
   }
 
   .email-step input:focus {
     outline: none;
-    border-color: var(--terracotta);
+    border-color: var(--ink);
   }
 
   .email-step input::placeholder {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--warm-grey);
+    color: var(--grey);
   }
 
   .email-step .consent {
@@ -845,11 +791,11 @@
     text-align: left;
     margin: 1rem 0 2rem;
     font-size: 0.8rem;
-    color: var(--warm-grey);
+    color: var(--grey-deep);
     line-height: 1.5;
   }
 
-  .email-step .consent input { margin-top: 3px; accent-color: var(--terracotta); }
+  .email-step .consent input { margin-top: 3px; accent-color: var(--ink); }
 
   .email-step .actions {
     display: flex;
@@ -860,35 +806,35 @@
 
   .btn-back {
     background: transparent;
-    color: var(--cocoa);
-    border: 1px solid var(--cocoa);
+    color: var(--ink);
+    border: 1px solid var(--ink);
     padding: 1rem 2rem;
-    border-radius: 100px;
     font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
+    font-weight: 400;
   }
 
-  .btn-back:hover { background: var(--cocoa); color: var(--cream); }
+  .btn-back:hover { background: var(--ink); color: var(--white); }
 
   .btn-analyze {
-    background: var(--terracotta);
-    color: var(--cream);
+    background: var(--ink);
+    color: var(--white);
     border: none;
     padding: 1rem 2rem;
-    border-radius: 100px;
     font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
+    font-weight: 400;
   }
 
-  .btn-analyze:hover { background: var(--clay); }
+  .btn-analyze:hover { background: var(--ink-deep); }
   .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .loading-step {
@@ -897,37 +843,37 @@
   }
 
   .loading-orb {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto 2.5rem;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%,
-      var(--champagne-light),
-      var(--terracotta) 60%,
-      var(--clay));
+    border: 1px solid var(--line);
+    background: radial-gradient(circle at 30% 30%, var(--white), var(--paper) 70%, var(--grey-soft));
     animation: pulse 2.5s ease-in-out infinite;
-    box-shadow: 0 0 60px rgba(216, 149, 119, 0.4);
   }
 
   @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.9; }
-    50% { transform: scale(1.08); opacity: 1; }
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.06); opacity: 1; }
   }
 
   .loading-step h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-bottom: 0.8rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
   }
 
   .loading-step .status {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 1.1rem;
-    color: var(--cocoa-soft);
+    color: var(--grey-deep);
     min-height: 1.6em;
     transition: opacity 0.4s ease;
+    font-weight: 300;
   }
 
   .results-step .results-header {
@@ -936,38 +882,42 @@
   }
 
   .results-step .results-header .small-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.32em;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--grey);
     margin-bottom: 1rem;
     display: block;
+    font-weight: 400;
   }
 
   .results-step .results-header h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.1;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
     margin-bottom: 1rem;
+    color: var(--ink);
   }
 
   .results-step .results-header h3 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--terracotta);
+    color: var(--warm-accent);
+    font-weight: 300;
   }
 
   .results-step .intro-quote {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.3rem;
-    color: var(--cocoa-soft);
+    font-size: 1.25rem;
+    color: var(--grey-deep);
     line-height: 1.6;
     max-width: 640px;
     margin: 0 auto;
     padding: 0 1rem;
+    font-weight: 300;
   }
 
   .results-grid {
@@ -978,10 +928,10 @@
   }
 
   .result-card {
-    background: var(--cream-deep);
+    background: var(--white);
     padding: 2rem;
-    border-radius: 12px;
-    border-left: 3px solid var(--terracotta);
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--warm-accent);
   }
 
   .result-card .card-head {
@@ -992,24 +942,25 @@
   }
 
   .result-card .card-icon {
-    width: 32px;
-    height: 32px;
-    color: var(--terracotta);
+    width: 28px;
+    height: 28px;
+    color: var(--grey-deep);
     flex-shrink: 0;
   }
 
   .result-card h4 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     letter-spacing: -0.005em;
+    color: var(--ink);
   }
 
   .result-card .level {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--warm-accent);
     margin-bottom: 0.7rem;
     font-weight: 500;
   }
@@ -1017,36 +968,38 @@
   .result-card p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--cocoa-soft);
+    line-height: 1.7;
+    color: var(--grey-deep);
+    font-weight: 300;
   }
 
   .recos-section {
-    background: var(--cocoa);
-    color: var(--cream);
+    background: var(--ink);
+    color: var(--white);
     padding: 3rem;
-    border-radius: 16px;
     margin-bottom: 2rem;
   }
 
   .recos-section .label {
-    color: var(--champagne);
+    color: var(--grey-soft);
     margin-bottom: 1rem;
     display: block;
   }
 
   .recos-section h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: 1.8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 1.7rem;
     margin-bottom: 2rem;
     letter-spacing: -0.01em;
+    color: var(--white);
   }
 
   .recos-section h4 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--champagne-light);
+    color: var(--warm-light);
+    font-weight: 300;
   }
 
   .reco-list {
@@ -1057,73 +1010,60 @@
 
   .reco-item {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     align-items: flex-start;
     padding-bottom: 1.2rem;
-    border-bottom: 1px solid rgba(216, 149, 119, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .reco-item:last-child { border-bottom: none; padding-bottom: 0; }
 
   .reco-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--champagne);
+    font-size: 0.7rem;
+    color: var(--grey-soft);
     flex-shrink: 0;
     line-height: 1;
-    padding-top: 2px;
+    padding-top: 6px;
+    letter-spacing: 0.3em;
   }
 
   .reco-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
-    line-height: 1.65;
-    color: var(--cream-deep);
+    line-height: 1.7;
+    color: var(--white);
+    font-weight: 300;
   }
 
   .results-cta {
-    background: linear-gradient(135deg, var(--terracotta), var(--clay));
-    color: var(--cream);
+    background: var(--paper);
+    color: var(--ink);
     padding: 3rem;
-    border-radius: 16px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .results-cta::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    right: -10%;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(247, 240, 228, 0.2), transparent 70%);
-    pointer-events: none;
+    border: 1px solid var(--line);
   }
 
   .results-cta .label {
-    color: var(--champagne-light);
     margin-bottom: 1rem;
     display: block;
-    position: relative;
   }
 
   .results-cta h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 1.9rem;
     margin-bottom: 1rem;
     letter-spacing: -0.01em;
-    position: relative;
+    color: var(--ink);
   }
 
   .results-cta h4 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--champagne-light);
+    color: var(--warm-accent);
+    font-weight: 300;
   }
 
   .results-cta p {
@@ -1135,25 +1075,25 @@
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
+    color: var(--grey-deep);
+    font-weight: 300;
   }
 
   .results-cta a {
     display: inline-block;
-    background: var(--cream);
-    color: var(--cocoa);
+    background: var(--ink);
+    color: var(--white);
     padding: 1.1rem 2.4rem;
-    border-radius: 100px;
     text-decoration: none;
     font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s ease;
-    position: relative;
+    font-weight: 400;
   }
 
-  .results-cta a:hover { background: var(--cocoa); color: var(--cream); }
+  .results-cta a:hover { background: var(--ink-deep); }
 
   .results-restart {
     text-align: center;
@@ -1166,30 +1106,33 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 1rem;
-    color: var(--warm-grey);
+    color: var(--grey);
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.3s ease;
   }
 
-  .results-restart button:hover { color: var(--terracotta); }
+  .results-restart button:hover { color: var(--ink); }
 
   .error-message {
-    background: rgba(168, 89, 60, 0.1);
-    border-left: 3px solid var(--clay);
+    background: var(--paper);
+    border-left: 2px solid var(--ink);
     padding: 1rem 1.5rem;
-    border-radius: 8px;
-    color: var(--clay);
+    color: var(--ink);
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     margin-top: 1rem;
     display: none;
+    font-style: italic;
   }
   .error-message.visible { display: block; }
 
   /* ============ SERVICES ============ */
-  .services { padding: 8rem 3rem; }
+  .services {
+    padding: 9rem 3rem;
+    background: var(--off-white);
+  }
 
   .services-header {
     display: grid;
@@ -1197,79 +1140,85 @@
     gap: 4rem;
     align-items: end;
     margin-bottom: 5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .services-header h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     line-height: 1.05;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .services-header h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--terracotta);
+    color: var(--warm-accent);
+    font-weight: 300;
   }
   .services-header p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-style: italic;
-    color: var(--cocoa-soft);
+    color: var(--grey-deep);
     line-height: 1.7;
+    font-weight: 300;
   }
 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .service-card {
-    background: var(--cream-deep);
+    background: var(--white);
     padding: 3rem;
+    border: 1px solid var(--line);
+    transition: all 0.6s ease;
     position: relative;
     overflow: hidden;
-    transition: all 0.6s ease;
-    cursor: default;
-    border-radius: 12px;
   }
+
   .service-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 0; height: 3px;
-    background: var(--terracotta);
+    width: 0; height: 1px;
+    background: var(--warm-accent);
     transition: width 0.7s ease;
   }
   .service-card:hover::before { width: 100%; }
-  .service-card:hover {
-    transform: translateY(-4px);
-    background: var(--sand);
-  }
+  .service-card:hover { border-color: var(--grey-soft); }
 
   .service-icon {
-    width: 54px;
-    height: 54px;
+    width: 44px;
+    height: 44px;
     margin-bottom: 2rem;
-    color: var(--terracotta);
+    color: var(--grey-deep);
   }
 
   .service-card h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 1.85rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     line-height: 1.2;
     letter-spacing: -0.01em;
+    color: var(--ink);
   }
 
   .service-card p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--cocoa-soft);
+    color: var(--grey-deep);
     margin-bottom: 1.5rem;
+    font-weight: 300;
   }
 
   .service-meta {
@@ -1277,57 +1226,23 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(61, 42, 31, 0.15);
+    border-top: 1px solid var(--line);
   }
   .service-meta .price {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.2rem;
-    color: var(--terracotta);
+    font-size: 1.15rem;
+    color: var(--grey-deep);
+    font-weight: 300;
   }
   .service-meta .more {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--cocoa);
+    color: var(--ink);
     cursor: pointer;
+    font-weight: 400;
   }
-
-  /* ============ BRANDS ============ */
-  .brands {
-    padding: 6rem 3rem;
-    background: var(--sand);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .brands .label { color: var(--terracotta); margin-bottom: 3rem; display: block; position: relative; z-index: 2; }
-
-  .brands-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  .brand {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: 1.5rem;
-    letter-spacing: 0.12em;
-    color: var(--cocoa);
-    opacity: 0.55;
-    transition: opacity 0.4s ease;
-    text-transform: uppercase;
-  }
-  .brand:hover { opacity: 1; }
 
   /* ============ TESTIMONIAL ============ */
   .testimonial {
@@ -1335,25 +1250,24 @@
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
-    position: relative;
+    background: var(--white);
   }
 
   .quote-mark {
-    font-family: 'Fraunces', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: 9rem;
-    color: var(--terracotta);
+    font-size: 8rem;
+    color: var(--grey-soft);
     line-height: 0.5;
     margin-bottom: 1rem;
-    opacity: 0.45;
   }
 
   .testimonial blockquote {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
     line-height: 1.4;
-    color: var(--cocoa);
+    color: var(--ink);
     margin-bottom: 2.5rem;
     font-weight: 300;
   }
@@ -1361,66 +1275,53 @@
   .testimonial cite {
     font-style: normal;
     font-size: 0.7rem;
-    letter-spacing: 0.35em;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--grey);
   }
 
   /* ============ CONTACT ============ */
   .contact {
-    background: linear-gradient(160deg, var(--terracotta) 0%, var(--clay) 100%);
-    color: var(--cream);
-    padding: 8rem 3rem;
+    background: var(--ink);
+    color: var(--white);
+    padding: 9rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
-    position: relative;
-    overflow: hidden;
   }
 
-  .contact::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, rgba(247, 240, 228, 0.15), transparent 60%);
-    pointer-events: none;
-  }
-
-  .contact-text { position: relative; z-index: 2; }
-  .contact-text .label { color: var(--champagne-light); margin-bottom: 1.5rem; display: block; }
+  .contact-text .label { color: var(--grey-soft); margin-bottom: 1.5rem; display: block; }
 
   .contact-text h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     line-height: 1.05;
     margin-bottom: 2rem;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
+    color: var(--white);
   }
   .contact-text h2 em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    color: var(--champagne-light);
+    color: var(--warm-light);
+    font-weight: 300;
   }
   .contact-text p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-style: italic;
     line-height: 1.7;
-    color: var(--cream-deep);
+    color: var(--grey-soft);
     max-width: 460px;
+    font-weight: 300;
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    position: relative;
-    z-index: 2;
   }
 
   .contact-form input,
@@ -1428,9 +1329,9 @@
   .contact-form select {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(247, 240, 228, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 1rem 0;
-    color: var(--cream);
+    color: var(--white);
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     transition: border-color 0.4s ease;
@@ -1440,45 +1341,46 @@
   .contact-form textarea:focus,
   .contact-form select:focus {
     outline: none;
-    border-bottom-color: var(--cream);
+    border-bottom-color: var(--white);
   }
   .contact-form input::placeholder,
   .contact-form textarea::placeholder {
-    color: rgba(247, 240, 228, 0.55);
+    color: rgba(255, 255, 255, 0.5);
     font-style: italic;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
   }
   .contact-form select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23f7f0e4' stroke-width='1' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right center;
-    color: rgba(247, 240, 228, 0.55);
+    color: rgba(255, 255, 255, 0.5);
   }
-  .contact-form select option { background: var(--clay); color: var(--cream); }
+  .contact-form select option { background: var(--ink); color: var(--white); }
   .contact-form textarea { resize: vertical; min-height: 80px; }
 
   .contact-form button {
     margin-top: 1rem;
-    background: var(--cream);
-    color: var(--cocoa);
+    background: var(--white);
+    color: var(--ink);
     border: none;
     padding: 1.2rem 2.4rem;
-    border-radius: 100px;
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s ease;
     align-self: flex-start;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
-  .contact-form button:hover { background: var(--cocoa); color: var(--cream); }
+  .contact-form button:hover { background: var(--paper); }
 
   /* ============ FOOTER ============ */
   footer {
-    background: var(--cocoa);
-    color: var(--cream);
+    background: var(--ink-deep);
+    color: var(--white);
     padding: 3rem;
     display: flex;
     justify-content: space-between;
@@ -1486,30 +1388,30 @@
     flex-wrap: wrap;
     gap: 2rem;
   }
-  .footer-brand { display: flex; align-items: center; gap: 0.8rem; }
-  .footer-brand svg { width: 32px; height: 32px; color: var(--champagne); }
-  .footer-brand-text {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 1.05rem;
-    letter-spacing: 0.18em;
+  .footer-brand { display: flex; align-items: center; gap: 1rem; }
+  .footer-brand img {
+    height: 24px;
+    width: auto;
+    filter: invert(1) brightness(0.95);
+    opacity: 0.85;
   }
+
   .footer-meta {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--grey-soft);
   }
   .footer-social { display: flex; gap: 1.5rem; }
   .footer-social a {
-    color: var(--cream-deep);
+    color: var(--grey-soft);
     text-decoration: none;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     transition: color 0.3s ease;
   }
-  .footer-social a:hover { color: var(--champagne); }
+  .footer-social a:hover { color: var(--white); }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -1518,61 +1420,40 @@
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
+    nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-logo img { height: 22px; }
     .hero { grid-template-columns: 1fr; gap: 3rem; padding: 7rem 1.5rem 4rem; }
-    .hero-image-wrap { order: -1; max-width: 400px; margin: 0 auto; }
+    .hero-image-wrap { order: -1; max-width: 380px; margin: 0 auto; }
     .scroll-hint { display: none; }
     .about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
     .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
     .method { padding: 5rem 1.5rem; }
     .method-grid { grid-template-columns: 1fr; }
-    .method-step { border-right: none; border-bottom: 1px solid rgba(216, 149, 119, 0.25); }
+    .method-step { border-right: none; border-bottom: 1px solid var(--line); }
     .method-step:last-child { border-bottom: none; }
+    .method-logo { max-width: 280px; }
     .services { padding: 5rem 1.5rem; }
+    .services-header { grid-template-columns: 1fr; gap: 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 2rem; }
+    .testimonial { padding: 6rem 1.5rem; }
+    .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
     .skin-reading { padding: 5rem 1.5rem; }
     .reader-container { padding: 2rem 1.5rem; }
     .results-grid { grid-template-columns: 1fr; }
     .recos-section, .results-cta { padding: 2rem 1.5rem; }
     .upload-zone { padding: 2.5rem 1rem; }
     .upload-tips { gap: 1.2rem; }
-    .services-header { grid-template-columns: 1fr; gap: 2rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { padding: 2rem; }
-    .brands { padding: 4rem 1.5rem; }
-    .brands-grid { gap: 2rem; }
-    .brand { font-size: 1.1rem; }
-    .testimonial { padding: 6rem 1.5rem; }
-    .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
-    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- LOGO SVG -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="bb-logo" viewBox="0 0 100 100">
-      <g fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="50" cy="50" r="46" stroke-opacity="0.4"/>
-        <circle cx="50" cy="50" r="38"/>
-        <path d="M 30 32 L 30 68 M 30 32 Q 44 32 44 41 Q 44 50 30 50 Q 46 50 46 59 Q 46 68 30 68"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-        <path d="M 70 32 L 70 68 M 70 32 Q 56 32 56 41 Q 56 50 70 50 Q 54 50 54 59 Q 54 68 70 68"
-              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
-              transform="scale(-1,1) translate(-100,0)"/>
-        <path d="M 50 46 L 52 50 L 50 54 L 48 50 Z" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ============ NAVIGATION ============ -->
 <nav>
   <div class="nav-logo">
-    <svg style="color: var(--cocoa);"><use href="#bb-logo"/></svg>
-    <span class="nav-logo-text">BRUNA BISOL</span>
+    <img src="/assets/skyreset-logo.png" alt="SKYRESET Method" />
   </div>
   <ul class="nav-links">
     <li><a href="#about">Story</a></li>
@@ -1584,19 +1465,18 @@
   <a href="#contact" class="nav-cta">Book a session</a>
 </nav>
 
-<!-- ============ HERO ============ -->
 <header class="hero">
   <div class="hero-text">
     <div class="hero-eyebrow">
       <span class="line"></span>
-      <span>UGC Creator · Skincare Expert</span>
+      <span>Bruna Bisol · UGC Beauty &amp; Travel</span>
     </div>
     <h1 class="hero-title">
       Skin, gently<br>
       <em>brought back to life.</em>
     </h1>
     <p class="hero-sub">
-      A warm, intentional approach to beauty — between Dubai and Toronto. Private skincare experiences, soulful brand storytelling, and the signature SKYRESET Method™. For skin that finally feels like home.
+      A precise, intentional approach to skincare — between Dubai and Toronto. Private experiences, soulful brand storytelling, and the signature SKYRESET Method™.
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary"><span>Book an experience</span></a>
@@ -1609,62 +1489,26 @@
       <svg class="figure" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="figGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#a8593c" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#3d2a1f" stop-opacity="0.6"/>
+            <stop offset="0%" stop-color="#8e8c87" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#2a2826" stop-opacity="0.45"/>
           </linearGradient>
           <radialGradient id="lightSpot" cx="30%" cy="25%">
-            <stop offset="0%" stop-color="#f7f0e4" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#f7f0e4" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
           </radialGradient>
         </defs>
         <rect width="400" height="500" fill="url(#lightSpot)"/>
-        <!-- Silhouette portrait -->
         <path d="M 100 500 Q 100 380 140 340 Q 170 310 200 305 Q 230 310 260 340 Q 300 380 300 500 Z"
               fill="url(#figGrad)"/>
         <path d="M 175 340 Q 175 300 200 295 Q 225 300 225 340"
-              fill="#3d2a1f" opacity="0.35"/>
-        <ellipse cx="200" cy="240" rx="55" ry="70" fill="#3d2a1f" opacity="0.22"/>
+              fill="#2a2826" opacity="0.2"/>
+        <ellipse cx="200" cy="240" rx="55" ry="70" fill="#2a2826" opacity="0.12"/>
         <path d="M 145 220 Q 130 280 135 360 Q 145 380 155 360 Q 160 300 165 250"
-              fill="#3d2a1f" opacity="0.45"/>
+              fill="#1a1817" opacity="0.3"/>
         <path d="M 255 220 Q 270 280 265 360 Q 255 380 245 360 Q 240 300 235 250"
-              fill="#3d2a1f" opacity="0.45"/>
-        <!-- Sun behind shoulder -->
-        <circle cx="320" cy="160" r="40" fill="#e8c89a" opacity="0.5"/>
+              fill="#1a1817" opacity="0.3"/>
       </svg>
-    </div>
-
-    <!-- Decorative sun bottom-left -->
-    <div class="hero-sun">
-      <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="55" cy="55" r="22" fill="currentColor" opacity="0.85"/>
-        <g stroke="currentColor" stroke-width="1.5" opacity="0.7">
-          <line x1="55" y1="10" x2="55" y2="22"/>
-          <line x1="55" y1="88" x2="55" y2="100"/>
-          <line x1="10" y1="55" x2="22" y2="55"/>
-          <line x1="88" y1="55" x2="100" y2="55"/>
-          <line x1="22" y1="22" x2="30" y2="30"/>
-          <line x1="80" y1="80" x2="88" y2="88"/>
-          <line x1="22" y1="88" x2="30" y2="80"/>
-          <line x1="80" y1="30" x2="88" y2="22"/>
-        </g>
-      </svg>
-    </div>
-
-    <!-- Rotating badge -->
-    <div class="hero-badge">
-      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <path id="circlePath" d="M 70, 70 m -52, 0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0"/>
-        </defs>
-        <text font-family="Fraunces, serif" font-size="9" letter-spacing="3" fill="#3d2a1f" font-weight="400">
-          <textPath href="#circlePath" startOffset="0">
-            ✦ SKYRESET METHOD ✦ BY INVITATION ✦
-          </textPath>
-        </text>
-        <g transform="translate(70,70)">
-          <path d="M 0 -8 L 2 0 L 0 8 L -2 0 Z" fill="#c87856"/>
-        </g>
-      </svg>
+      <div class="hero-frame"></div>
     </div>
   </div>
 
@@ -1674,58 +1518,39 @@
   </div>
 </header>
 
-<!-- ============ MARQUEE ============ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Beauty</span><span class="star">✦</span>
-    <span>Travel</span><span class="star">✦</span>
-    <span>SKYRESET Method™</span><span class="star">✦</span>
-    <span>UGC Creator</span><span class="star">✦</span>
-    <span>Dubai · Toronto</span><span class="star">✦</span>
-    <span>Beauty</span><span class="star">✦</span>
-    <span>Travel</span><span class="star">✦</span>
-    <span>SKYRESET Method™</span><span class="star">✦</span>
-    <span>UGC Creator</span><span class="star">✦</span>
-    <span>Dubai · Toronto</span><span class="star">✦</span>
+    <span>Beauty</span><span class="dot">·</span>
+    <span>Travel</span><span class="dot">·</span>
+    <span>SKYRESET Method™</span><span class="dot">·</span>
+    <span>UGC Creator</span><span class="dot">·</span>
+    <span>Dubai · Toronto</span><span class="dot">·</span>
+    <span>Beauty</span><span class="dot">·</span>
+    <span>Travel</span><span class="dot">·</span>
+    <span>SKYRESET Method™</span><span class="dot">·</span>
+    <span>UGC Creator</span><span class="dot">·</span>
+    <span>Dubai · Toronto</span><span class="dot">·</span>
   </div>
 </div>
 
-<!-- ============ ABOUT ============ -->
 <section class="about" id="about">
   <div class="about-image">
     <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
       <defs>
         <linearGradient id="portraitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#e8c89a"/>
-          <stop offset="100%" stop-color="#c87856"/>
+          <stop offset="0%" stop-color="#fafafa"/>
+          <stop offset="100%" stop-color="#e8e8e6"/>
         </linearGradient>
-        <radialGradient id="warmGlow" cx="70%" cy="20%">
-          <stop offset="0%" stop-color="#f7f0e4" stop-opacity="0.6"/>
-          <stop offset="100%" stop-color="#f7f0e4" stop-opacity="0"/>
-        </radialGradient>
       </defs>
       <rect width="300" height="400" fill="url(#portraitGrad)"/>
-      <rect width="300" height="400" fill="url(#warmGlow)"/>
-
-      <!-- Skincare objects, warm glow -->
-      <g opacity="0.4">
-        <rect x="80" y="120" width="40" height="120" rx="3" fill="#3d2a1f" opacity="0.55"/>
-        <rect x="88" y="100" width="24" height="25" fill="#3d2a1f" opacity="0.7"/>
-        <rect x="140" y="200" width="55" height="55" rx="4" fill="#3d2a1f" opacity="0.45"/>
-        <rect x="145" y="190" width="45" height="12" fill="#a8593c" opacity="0.7"/>
-        <rect x="210" y="150" width="28" height="90" rx="3" fill="#3d2a1f" opacity="0.6"/>
-        <circle cx="224" cy="142" r="6" fill="#c87856" opacity="0.85"/>
-        <!-- Olive branch -->
-        <path d="M 50 320 Q 70 280 100 290 Q 90 320 60 340 Z" fill="#3d2a1f" opacity="0.35"/>
-        <ellipse cx="55" cy="305" rx="3" ry="6" fill="#3d2a1f" opacity="0.5" transform="rotate(-30 55 305)"/>
-        <ellipse cx="75" cy="295" rx="3" ry="6" fill="#3d2a1f" opacity="0.5" transform="rotate(-20 75 295)"/>
-      </g>
-
-      <!-- Decorative dots -->
-      <g fill="#3d2a1f" opacity="0.08">
-        <circle cx="30" cy="50" r="1.2"/><circle cx="270" cy="80" r="1.2"/>
-        <circle cx="50" cy="250" r="1.2"/><circle cx="240" cy="350" r="1.2"/>
-        <circle cx="180" cy="60" r="1.2"/><circle cx="120" cy="380" r="1.2"/>
+      <g opacity="0.3">
+        <rect x="80" y="120" width="40" height="120" rx="2" fill="#2a2826" opacity="0.55"/>
+        <rect x="88" y="100" width="24" height="25" fill="#2a2826" opacity="0.65"/>
+        <rect x="140" y="200" width="55" height="55" rx="3" fill="#2a2826" opacity="0.4"/>
+        <rect x="145" y="190" width="45" height="12" fill="#6b6864" opacity="0.6"/>
+        <rect x="210" y="150" width="28" height="90" rx="2" fill="#2a2826" opacity="0.5"/>
+        <circle cx="224" cy="142" r="6" fill="#2a2826" opacity="0.7"/>
+        <path d="M 50 320 Q 70 280 100 290 Q 90 320 60 340 Z" fill="#2a2826" opacity="0.25"/>
       </g>
     </svg>
   </div>
@@ -1759,10 +1584,11 @@
   </div>
 </section>
 
-<!-- ============ METHOD ============ -->
 <section class="method" id="method">
   <div class="method-header">
-    <span class="label">— SKYRESET Method™</span>
+    <div class="method-logo">
+      <img src="/assets/skyreset-logo.png" alt="SKYRESET Method™" />
+    </div>
     <h2>Three movements<br>to <em>reset</em> the skin.</h2>
     <p>A proprietary method that doesn't chase symptoms — it tends to the whole landscape of your skin. Crafted for those who have tried everything.</p>
   </div>
@@ -1786,7 +1612,6 @@
   </div>
 </section>
 
-<!-- ============ SKIN READING (AI Tool) ============ -->
 <section class="skin-reading" id="skin-reading">
   <div class="skin-reading-inner">
     <div class="skin-reading-header">
@@ -1799,8 +1624,6 @@
     </div>
 
     <div class="reader-container">
-
-      <!-- Step indicator -->
       <div class="reader-steps">
         <div class="reader-step-pill active" data-pill="upload">
           <span class="dot"></span>
@@ -1818,12 +1641,11 @@
         </div>
       </div>
 
-      <!-- STEP 1: UPLOAD -->
       <div class="reader-step active" id="step-upload">
         <div class="upload-zone" id="uploadZone">
-          <svg class="upload-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="28" cy="28" r="25"/>
-            <path d="M 28 18 L 28 38 M 18 28 L 38 28" stroke-linecap="round"/>
+          <svg class="upload-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="24" cy="24" r="21"/>
+            <path d="M 24 16 L 24 32 M 16 24 L 32 24" stroke-linecap="round"/>
           </svg>
           <h3>Share a recent selfie</h3>
           <p>Natural light, no makeup if possible — just you, the way you wake up.</p>
@@ -1832,22 +1654,21 @@
 
           <div class="upload-tips">
             <div class="upload-tip">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M 5 8 L 7 10 L 11 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5.5"/><path d="M 4.5 7 L 6 8.5 L 9.5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Soft daylight</span>
             </div>
             <div class="upload-tip">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M 5 8 L 7 10 L 11 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5.5"/><path d="M 4.5 7 L 6 8.5 L 9.5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Face clearly visible</span>
             </div>
             <div class="upload-tip">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M 5 8 L 7 10 L 11 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5.5"/><path d="M 4.5 7 L 6 8.5 L 9.5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Photo never stored</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 2: EMAIL -->
       <div class="reader-step" id="step-email">
         <div class="email-step">
           <div class="preview"><img id="previewImg" src="" alt="Your photo" /></div>
@@ -1871,7 +1692,6 @@
         </div>
       </div>
 
-      <!-- STEP 3: LOADING -->
       <div class="reader-step" id="step-loading">
         <div class="loading-step">
           <div class="loading-orb"></div>
@@ -1880,25 +1700,20 @@
         </div>
       </div>
 
-      <!-- STEP 4: RESULTS -->
       <div class="reader-step" id="step-results">
         <div class="results-step">
           <div class="results-header">
             <span class="small-label">— Your Skin Reading</span>
-            <h3 id="resultsTitle">A first conversation,<br><em>just for you.</em></h3>
+            <h3>A first conversation,<br><em>just for you.</em></h3>
             <p class="intro-quote" id="resultsIntro"></p>
           </div>
 
-          <div class="results-grid" id="resultsGrid">
-            <!-- Cards injected via JS -->
-          </div>
+          <div class="results-grid" id="resultsGrid"></div>
 
           <div class="recos-section">
             <span class="label">— Bruna's recommendations</span>
             <h4>Three gentle <em>movements</em> to begin.</h4>
-            <div class="reco-list" id="recoList">
-              <!-- Recos injected via JS -->
-            </div>
+            <div class="reco-list" id="recoList"></div>
           </div>
 
           <div class="results-cta">
@@ -1913,10 +1728,125 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <h2>An <em>intimate</em> offering.</h2>
+    <p>Each experience is treated like something rare — selective, deeply personal, and always rooted in clear intention.</p>
+  </div>
+
+  <div class="services-grid">
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <circle cx="22" cy="22" r="18"/>
+        <path d="M 16 18 Q 22 14 28 18 M 16 26 Q 22 30 28 26"/>
+        <circle cx="22" cy="22" r="2.5" fill="currentColor"/>
+      </svg>
+      <h3>Private Skincare Experience</h3>
+      <p>The signature SKYRESET Method™ treatment, two hours in a private suite in Dubai or Toronto. Skin reading, sculpting massage, and bespoke ritual.</p>
+      <div class="service-meta">
+        <span class="price">By request</span>
+        <span class="more">Inquire →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <rect x="9" y="13" width="26" height="19" rx="1.5"/>
+        <circle cx="22" cy="22" r="5"/>
+        <circle cx="22" cy="22" r="1.8" fill="currentColor"/>
+        <rect x="18" y="9" width="8" height="4"/>
+      </svg>
+      <h3>UGC &amp; Brand Content</h3>
+      <p>Authentic, soulful content for beauty and lifestyle brands. Creative direction, capture, and ready-to-publish deliverables — crafted with care.</p>
+      <div class="service-meta">
+        <span class="price">On request</span>
+        <span class="more">Discuss →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M 9 22 L 22 9 L 35 22 L 22 35 Z"/>
+        <circle cx="22" cy="22" r="5"/>
+      </svg>
+      <h3>Travel Editorials</h3>
+      <p>Slow travel notebooks between the Middle East and North America. Quiet hotels, hidden addresses, and rituals that travel beautifully.</p>
+      <div class="service-meta">
+        <span class="price">Collaborations</span>
+        <span class="more">Explore →</span>
+      </div>
+    </article>
+
+    <article class="service-card">
+      <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M 22 7 L 22 37 M 7 22 L 37 22"/>
+        <circle cx="22" cy="22" r="12"/>
+        <circle cx="22" cy="22" r="2.5" fill="currentColor"/>
+      </svg>
+      <h3>1:1 Consultation</h3>
+      <p>A remote diagnosis, a stripped-back routine, and four weeks of close guidance. The right way to start over — calmly, and with intention.</p>
+      <div class="service-meta">
+        <span class="price">Dedicated program</span>
+        <span class="more">Apply →</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="quote-mark">"</div>
+  <blockquote>
+    Bruna reads skin in a way I had never experienced before. In a single session, she undid years of bad habits — and put something quieter, truer, in their place.
+  </blockquote>
+  <cite>— C.M., Dubai client</cite>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-text">
+    <span class="label">— Get in touch</span>
+    <h2>A meeting,<br><em>tailored to you.</em></h2>
+    <p>Experiences are by invitation only. Share your intention, your city, your timing — Bruna replies personally within 48 hours.</p>
+  </div>
+
+  <div class="contact-form">
+    <input type="text" placeholder="Your name" name="name" />
+    <input type="email" placeholder="Email address" name="email" />
+    <select name="service">
+      <option value="">— Type of experience</option>
+      <option>Private Skincare Experience</option>
+      <option>UGC &amp; Brand Content</option>
+      <option>Travel Editorial</option>
+      <option>1:1 Consultation</option>
+      <option>Other</option>
+    </select>
+    <select name="city">
+      <option value="">— Preferred city</option>
+      <option>Dubai</option>
+      <option>Toronto</option>
+      <option>Other / remote</option>
+    </select>
+    <textarea placeholder="A few words about your intention..." name="message" rows="3"></textarea>
+    <button type="button">Send request</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="/assets/skyreset-logo.png" alt="SKYRESET Method™" />
+  </div>
+  <div class="footer-meta">
+    © 2026 — All rights reserved · SKYRESET Method™
+  </div>
+  <div class="footer-social">
+    <a href="https://instagram.com/bybrunabisol" target="_blank" rel="noopener">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#contact">Email</a>
+  </div>
+</footer>
 
 <script>
 (function() {
@@ -1943,8 +1873,6 @@
     document.querySelectorAll('.reader-step').forEach(s => s.classList.remove('active'));
     document.getElementById('step-' + name).classList.add('active');
     document.querySelectorAll('.reader-step-pill').forEach(p => p.classList.remove('active', 'done'));
-    const order = ['upload', 'email', 'loading', 'results'];
-    const currentIdx = order.indexOf(name);
     const pillMap = { upload: 'upload', email: 'email', loading: 'email', results: 'results' };
     document.querySelectorAll('.reader-step-pill').forEach(p => {
       const pillName = p.dataset.pill;
@@ -1963,7 +1891,6 @@
     emailError.classList.remove('visible');
   }
 
-  // === Upload handling ===
   uploadBtn.addEventListener('click', () => fileInput.click());
   uploadZone.addEventListener('click', (e) => {
     if (e.target === uploadBtn) return;
@@ -2007,7 +1934,6 @@
 
   backToUpload.addEventListener('click', () => showStep('upload'));
 
-  // === Loading messages rotation ===
   const loadingMessages = [
     "Listening to the light, the texture, the quiet signals.",
     "Reading the way your skin holds the day.",
@@ -2032,7 +1958,6 @@
     if (loadingInterval) clearInterval(loadingInterval);
   }
 
-  // === Analyze ===
   analyzeBtn.addEventListener('click', async () => {
     clearError();
     const firstName = firstNameInput.value.trim();
@@ -2051,15 +1976,10 @@
     startLoadingRotation();
 
     try {
-      // 1. Analyse de la peau via /api/analyze (cle API securisee cote serveur)
       const analyzeResponse = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName,
-          imageBase64,
-          imageMediaType
-        })
+        body: JSON.stringify({ firstName, imageBase64, imageMediaType })
       });
 
       if (!analyzeResponse.ok) {
@@ -2077,7 +1997,6 @@
         return;
       }
 
-      // 2. Envoi du lead a Bruna + email au client (en arriere-plan)
       fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -2095,15 +2014,14 @@
     }
   });
 
-  // === Render results ===
   function renderResults(result, firstName) {
     resultsIntro.textContent = result.intro || '';
 
     const icons = {
-      'Hydration': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M 16 4 Q 8 14 8 20 Q 8 27 16 27 Q 24 27 24 20 Q 24 14 16 4 Z" stroke-linejoin="round"/></svg>',
-      'Texture': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="12" r="2"/><circle cx="22" cy="12" r="2"/><circle cx="10" cy="22" r="2"/><circle cx="22" cy="22" r="2"/><circle cx="16" cy="17" r="2"/></svg>',
-      'Radiance': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="6"/><line x1="16" y1="3" x2="16" y2="7" stroke-linecap="round"/><line x1="16" y1="25" x2="16" y2="29" stroke-linecap="round"/><line x1="3" y1="16" x2="7" y2="16" stroke-linecap="round"/><line x1="25" y1="16" x2="29" y2="16" stroke-linecap="round"/><line x1="7" y1="7" x2="9.5" y2="9.5" stroke-linecap="round"/><line x1="22.5" y1="22.5" x2="25" y2="25" stroke-linecap="round"/><line x1="7" y1="25" x2="9.5" y2="22.5" stroke-linecap="round"/><line x1="22.5" y1="9.5" x2="25" y2="7" stroke-linecap="round"/></svg>',
-      'Tone': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="12"/><path d="M 16 4 Q 8 16 16 28" /></svg>'
+      'Hydration': '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M 14 4 Q 7 12 7 18 Q 7 24 14 24 Q 21 24 21 18 Q 21 12 14 4 Z" stroke-linejoin="round"/></svg>',
+      'Texture': '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="9" cy="11" r="1.5"/><circle cx="19" cy="11" r="1.5"/><circle cx="9" cy="19" r="1.5"/><circle cx="19" cy="19" r="1.5"/><circle cx="14" cy="15" r="1.5"/></svg>',
+      'Radiance': '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="14" cy="14" r="5"/><line x1="14" y1="3" x2="14" y2="6" stroke-linecap="round"/><line x1="14" y1="22" x2="14" y2="25" stroke-linecap="round"/><line x1="3" y1="14" x2="6" y2="14" stroke-linecap="round"/><line x1="22" y1="14" x2="25" y2="14" stroke-linecap="round"/></svg>',
+      'Tone': '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="14" cy="14" r="10"/><path d="M 14 4 Q 7 14 14 24" /></svg>'
     };
 
     resultsGrid.innerHTML = result.analysis.map(item => `
@@ -2135,140 +2053,6 @@
 
 })();
 </script>
-
-<!-- ============ SERVICES ============ -->
-<section class="services" id="services">
-  <div class="services-header">
-    <h2>An <em>intimate</em> offering.</h2>
-    <p>Each experience is treated like something rare — selective, deeply personal, and always rooted in clear intention.</p>
-  </div>
-
-  <div class="services-grid">
-    <article class="service-card">
-      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
-        <circle cx="25" cy="25" r="20"/>
-        <path d="M 18 20 Q 25 15 32 20 M 18 30 Q 25 35 32 30"/>
-        <circle cx="25" cy="25" r="3" fill="currentColor"/>
-      </svg>
-      <h3>Private Skincare Experience</h3>
-      <p>The signature SKYRESET Method™ treatment, two hours in a private suite in Dubai or Toronto. Skin reading, sculpting massage, and bespoke ritual.</p>
-      <div class="service-meta">
-        <span class="price">By request</span>
-        <span class="more">Inquire →</span>
-      </div>
-    </article>
-
-    <article class="service-card">
-      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
-        <rect x="10" y="14" width="30" height="22" rx="2"/>
-        <circle cx="25" cy="25" r="6"/>
-        <circle cx="25" cy="25" r="2" fill="currentColor"/>
-        <rect x="20" y="10" width="10" height="4"/>
-      </svg>
-      <h3>UGC &amp; Brand Content</h3>
-      <p>Authentic, soulful content for beauty and lifestyle brands. Creative direction, capture, and ready-to-publish deliverables — crafted with care.</p>
-      <div class="service-meta">
-        <span class="price">On request</span>
-        <span class="more">Discuss →</span>
-      </div>
-    </article>
-
-    <article class="service-card">
-      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
-        <path d="M 10 25 L 25 10 L 40 25 L 25 40 Z"/>
-        <circle cx="25" cy="25" r="6"/>
-      </svg>
-      <h3>Travel Editorials</h3>
-      <p>Slow travel notebooks between the Middle East and North America. Quiet hotels, hidden addresses, and rituals that travel beautifully.</p>
-      <div class="service-meta">
-        <span class="price">Collaborations</span>
-        <span class="more">Explore →</span>
-      </div>
-    </article>
-
-    <article class="service-card">
-      <svg class="service-icon" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1.3">
-        <path d="M 25 8 L 25 42 M 8 25 L 42 25"/>
-        <circle cx="25" cy="25" r="14"/>
-        <circle cx="25" cy="25" r="3" fill="currentColor"/>
-      </svg>
-      <h3>1:1 Consultation</h3>
-      <p>A remote diagnosis, a stripped-back routine, and four weeks of close guidance. The right way to start over — calmly, and with intention.</p>
-      <div class="service-meta">
-        <span class="price">Dedicated program</span>
-        <span class="more">Apply →</span>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ BRANDS ============ -->
-<section class="brands">
-  <span class="label">— Universe &amp; collaborations</span>
-  <div class="brands-grid">
-    <span class="brand">Augustinus Bader</span>
-    <span class="brand">La Mer</span>
-    <span class="brand">Hourglass</span>
-    <span class="brand">Sisley</span>
-    <span class="brand">Tatcha</span>
-    <span class="brand">Westman Atelier</span>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIAL ============ -->
-<section class="testimonial">
-  <div class="quote-mark">"</div>
-  <blockquote>
-    Bruna reads skin in a way I had never experienced before. In a single session, she undid years of bad habits — and put something quieter, truer, in their place.
-  </blockquote>
-  <cite>— C.M., Dubai client</cite>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="contact-text">
-    <span class="label">— Get in touch</span>
-    <h2>A meeting,<br><em>tailored to you.</em></h2>
-    <p>Experiences are by invitation only. Share your intention, your city, your timing — Bruna replies personally within 48 hours.</p>
-  </div>
-
-  <div class="contact-form">
-    <input type="text" placeholder="Your name" name="name" />
-    <input type="email" placeholder="Email address" name="email" />
-    <select name="service">
-      <option value="">— Type of experience</option>
-      <option>Private Skincare Experience</option>
-      <option>UGC &amp; Brand Content</option>
-      <option>Travel Editorial</option>
-      <option>1:1 Consultation</option>
-      <option>Other</option>
-    </select>
-    <select name="city">
-      <option value="">— Preferred city</option>
-      <option>Dubai</option>
-      <option>Toronto</option>
-      <option>Other / remote</option>
-    </select>
-    <textarea placeholder="A few words about your intention..." name="message" rows="3"></textarea>
-    <button type="button">Send request</button>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="footer-brand">
-    <svg><use href="#bb-logo"/></svg>
-    <span class="footer-brand-text">BRUNA BISOL</span>
-  </div>
-  <div class="footer-meta">
-    © 2026 — All rights reserved · SKYRESET Method™
-  </div>
-  <div class="footer-social">
-    <a href="#">Instagram</a>
-    <a href="#">TikTok</a>
-    <a href="#">Email</a>
-  </div>
-</footer>
 
 </body>
 </html>
